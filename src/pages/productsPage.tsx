@@ -1,11 +1,12 @@
-import "../CSS/ProductsPage"
+import ProductCard from "../components/productCard"
+import "../CSS/productsPage.css"
 
 function ProductsPage(){
 
     
-    return {
-
-    }
+    return (
+        <ProductCard />
+    )
 }
 
 export default ProductsPage

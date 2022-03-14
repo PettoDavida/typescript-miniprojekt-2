@@ -1,4 +1,4 @@
-import "../CSS/AboutPage"
+import "../CSS/AboutPage.css"
 
 
 function AboutPage(){

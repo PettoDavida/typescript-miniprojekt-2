@@ -1,4 +1,4 @@
-import "../CSS/MainPage"
+import "../CSS/mainPage.css"
 
 function MainPage(){
 

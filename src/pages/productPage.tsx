@@ -1,4 +1,4 @@
-import "../CSS/ProductPage"
+import "../CSS/productPage.css"
 
 function ProductPage(){
 
