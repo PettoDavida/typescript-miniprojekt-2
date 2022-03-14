@@ -1,0 +1,78 @@
+.payment-div {
+  color: rgb(231, 231, 231);
+  background-color: rgb(179, 179, 179);
+  position: absolute;
+  width: 30%;
+  height: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+
+.choose-payment {
+  display: flex;
+  justify-content: center;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.payment-swish {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.payment-swish:hover {
+  box-shadow: 0.05rem 0.05rem 0.05rem rgb(24, 24, 24);
+}
+.payment-swish p {
+  margin-left: 2rem;
+}
+.swish-logo {
+  max-height: 20%;
+  right: 15%;
+  position: absolute;
+}
+.payment-betalkort {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.payment-betalkort:hover {
+  box-shadow: 0.05rem 0.05rem 0.05rem rgb(24, 24, 24);
+}
+.payment-betalkort p {
+  margin-left: 2rem;
+}
+.betalkort-logo {
+  max-height: 10%;
+  right: 25%;
+  position: absolute;
+}
+.payment-paypal {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.payment-paypal:hover {
+  box-shadow: 0.05rem 0.05rem 0.05rem rgb(24, 24, 24);
+}
+.payment-paypal p {
+  margin-left: 2rem;
+}
+.paypal-logo {
+  max-height: 8%;
+  right: 20%;
+  position: absolute;
+}
