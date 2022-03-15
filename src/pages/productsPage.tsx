@@ -5,7 +5,7 @@ function ProductsPage(){
 
     
     return (
-        <ProductCard />
+            <ProductCard />
     )
 }
 
