@@ -4,9 +4,11 @@ import "../CSS/AboutPage.css"
 function AboutPage(){
 
     
-    return {
-
-    }
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
 export default AboutPage

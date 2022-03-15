@@ -1,11 +1,24 @@
+
 import "../CSS/productPage.css"
 
-function ProductPage(){
-
+function ProductPage(prop: any){
     
-    return {
+    let URL = getClothingItemFromFullURL(prop.clothingName)
+    // decodeURI(URL)
+    return (
+        <div>
+            <h1>
+                Product Page
+                <br />
+                {URL}
+            </h1>
+        </div>
+    )
+}
 
-    }
+function getClothingItemFromFullURL(url: string){
+    return url.split('/').pop()
 }
 
 export default ProductPage
+

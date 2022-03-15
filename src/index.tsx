@@ -1,16 +1,26 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import ProductPage from './pages/productPage';
+import NotFoundPage from './pages/notFoundPage';
+import { clothes } from './components/products';
+import ProductsPage from './pages/productsPage';
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      
+      <Route path="/" element={<App />}>
+        <Route path='productspage' element={<ProductsPage/>}>
+        </Route>
+
+      </Route>
+      <Route path='productspage/:clothing' element={<ProductPage clothingName={window.location.href}/>} />
+
+      <Route path='*' element={<NotFoundPage />} />
     </Routes>
-  </BrowserRouter>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
