@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import ProductPage from './pages/productPage';
 import NotFoundPage from './pages/notFoundPage';
-import { clothes } from './components/products';
 import ProductsPage from './pages/productsPage';
 
 ReactDOM.render(
@@ -16,7 +15,7 @@ ReactDOM.render(
         </Route>
 
       </Route>
-      <Route path='productspage/:clothing' element={<ProductPage clothingName={window.location.href}/>} />
+      <Route path='productspage/:clothing' element={<ProductPage />} />
 
       <Route path='*' element={<NotFoundPage />} />
     </Routes>

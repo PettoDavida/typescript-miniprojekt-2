@@ -1,16 +1,33 @@
 
+import { clothes } from "../components/products";
 import "../CSS/productPage.css"
 
-function ProductPage(prop: any){
+function ProductPage(){
+
+    let getURL = window.location.href
+
+    let decodedURL = decodeURI(getURL)
+    let itemFromURL = getClothingItemFromFullURL(decodedURL)
+
+    for (let index = 0; index < clothes.length; index++) {
+        console.log(clothes[index].name)
+        if (itemFromURL === clothes[index].name) {
+            return(
+                <div>
+                    <h1>{clothes[index].name}</h1>
+                    <img src={clothes[index].image} alt="" />
+                </div>
+            )
+        }
+        
+    }
     
-    let URL = getClothingItemFromFullURL(prop.clothingName)
-    // decodeURI(URL)
     return (
         <div>
             <h1>
                 Product Page
                 <br />
-                {URL}
+                {itemFromURL}
             </h1>
         </div>
     )
