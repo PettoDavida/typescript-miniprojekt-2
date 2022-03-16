@@ -60,12 +60,12 @@ span{
 }
 input:focus + #inputLabel{
     color: #D15814;
-	transform: translateY(-4.5rem);
+	transform: translateY(-5.5rem);
 }
 
 input:valid + #inputLabel{
     color: #D15814;
-	transform: translateY(-4.5rem);
+	transform: translateY(-5.5rem);
 }
 
 .buttonDiv{
