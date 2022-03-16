@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import "../CSS/fraktsätt.css"
+import postnordLogo from '../Images/postnord-logo.jpeg'
+import dhlLogo from '../Images/dhl-logo.png'
+import instaboxLogo from '../Images/instabox-logo.png'
 
 function Fraktsätt() {
 
@@ -30,6 +33,7 @@ function Fraktsätt() {
             <div className="postnordDiv">
             <input name='Radio' id="postnord" type="radio" onClick={() => setValue(1)}/>
             <label id="inputLabel" htmlFor="Postnord">Postnord Ombud</label>
+            <img src={postnordLogo} alt="" />
             <div className={postnordExtended}>
             <div className='leveransDag'>
             <p>Fri frakt!</p>
@@ -49,6 +53,7 @@ function Fraktsätt() {
             <div className="postnordHemDiv">
             <input name='Radio' id="postnordHem" type="radio" onClick={() => setValue(2)} />
             <label id="inputLabel" htmlFor="PostnordHem">Postnord hemleverans</label>
+            <img src={postnordLogo} alt="" />
             <div className={postnordHemExtended}>
             <div className='leveransDag'>
             <p>29 kr</p>
@@ -67,6 +72,7 @@ function Fraktsätt() {
             <div className="DHLDiv">
             <input name='Radio' id="DHL" type="radio"  onClick={() => setValue(3)} />
             <label id="inputLabel" htmlFor="DHL">DHL</label>
+            <img src={dhlLogo} alt="" />
             <div className={DHLExtended}>
             <div className='leveransDag'>
             <p>Fri frakt!</p>
@@ -87,6 +93,7 @@ function Fraktsätt() {
             <div className="instaboxDiv">
             <input name='Radio' id="instabox" type="radio" onClick={() => setValue(4)} />
             <label id="inputLabel" htmlFor="Instabox">Instabox</label>
+            <img src={instaboxLogo} alt="" />
             <div className={instaboxExtended}>
             <div className='leveransDag'>
             <p>Fri frakt!</p>

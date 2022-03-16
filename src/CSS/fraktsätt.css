@@ -1,3 +1,12 @@
+img{
+    width:3rem;
+    height:3rem;
+    border-radius: 10px;
+    position: absolute;
+    right:0;
+    gap: 2rem;
+}
+
 span{
     font-weight: 300;
     font-size: larger;
@@ -38,16 +47,6 @@ span{
                 0 32px 64px rgba(0,0,0,0.07);
 }
 
-
-/* .contentDiv{
-    height: 50vh;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column ;
-    border: 2px solid red;
-} */
 
 .formDiv > input{
     z-index: 1000;
@@ -95,6 +94,7 @@ span{
 .postnordDiv, .postnordHemDiv, .DHLDiv, .instaboxDiv{
     /* border: 2px solid black; */
     width: 100%;
+    min-height:4rem;
 }
 
 .buttonDiv{
