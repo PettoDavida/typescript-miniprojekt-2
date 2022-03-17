@@ -3,7 +3,10 @@ import "../CSS/form.css"
 
 function Form() {
   
-  const [input, setInput] = useState('');
+  const [telefonnummer, setTelefonnummer] = useState('');
+  const [adress, setAdress] = useState('');
+  console.log(telefonnummer)
+  console.log(adress)
   return (
     <div className="mainDiv">
         <div className="formDiv">
@@ -19,10 +22,10 @@ function Form() {
             <input name='Mail' className="textInput" type="text" required minLength={1} autoComplete="email" />
             <label id="inputLabel" htmlFor="Mail">Mail</label>
 
-            <input name='Telefonnummer' className="textInput" value={input} onInput={e => setInput(e.currentTarget.value)} type="text" required minLength={1} autoComplete="tel" />
+            <input name='Telefonnummer' className="textInput" value={telefonnummer} onInput={e => setTelefonnummer(e.currentTarget.value)} type="text" required minLength={1} autoComplete="tel" />
             <label id="inputLabel" htmlFor="Telefonnummer">Telefonnummer</label>
 
-            <input name='Adress' className="textInput" type="text" required minLength={1} autoComplete="street-address" />
+            <input name='Adress' className="textInput" value={adress} onInput={e => setAdress(e.currentTarget.value)} type="text" required minLength={1} autoComplete="street-address" />
             <label id="inputLabel" htmlFor="Adress">Adress</label>
 
             </div>
