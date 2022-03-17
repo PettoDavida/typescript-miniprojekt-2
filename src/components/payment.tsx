@@ -6,22 +6,22 @@ function PaymentMethod() {
       <div className="choose-payment">
         <h2>Välj betalningsätt!</h2>
       </div>
+      <div className="payment-methods">
+        <div className="payment">
+          <p>Swish</p>
 
-      <div className="payment-swish">
-        <p>Swish</p>
+          <img src="images/Swish.png" className="swish-logo" alt="" />
+        </div>
+        <div className="payment">
+          <p>Betalkort</p>
 
-        <img src="images/Swish.png" className="swish-logo" alt="" />
-      </div>
+          <img src="images/Mastercard.png" className="betalkort-logo" alt="" />
+        </div>
+        <div className="payment">
+          <p>Paypal</p>
 
-      <div className="payment-betalkort">
-        <p>Betalkort</p>
-
-        <img src="images/Mastercard.png" className="betalkort-logo" alt="" />
-      </div>
-      <div className="payment-paypal">
-        <p>Paypal</p>
-
-        <img src="images/Paypal.png" className="paypal-logo" alt="" />
+          <img src="images/Paypal.png" className="paypal-logo" alt="" />
+        </div>
       </div>
     </div>
   );

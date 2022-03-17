@@ -1,9 +1,8 @@
 .payment-div {
-  color: rgb(231, 231, 231);
-  background-color: rgb(179, 179, 179);
+  color: rgb(24, 24, 24);
   position: absolute;
-  width: 30%;
-  height: 75%;
+  width: 35%;
+  height: 70%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -11,6 +10,9 @@
   justify-content: center;
   flex-direction: column;
   border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
 .choose-payment {
@@ -22,35 +24,35 @@
   font-size: 1.5rem;
 }
 
-.payment-swish {
+.payment-methods {
+  position: absolute;
+  bottom: 0;
+  height: 80%;
   width: 100%;
-  height: 25%;
   display: flex;
-  align-items: center;
-  font-size: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.payment-swish:hover {
-  box-shadow: 0.05rem 0.05rem 0.05rem rgb(24, 24, 24);
-}
-.payment-swish p {
-  margin-left: 2rem;
-}
+
 .swish-logo {
   max-height: 20%;
   right: 15%;
   position: absolute;
 }
-.payment-betalkort {
+.payment {
   width: 100%;
-  height: 25%;
+  height: 33%;
   display: flex;
   align-items: center;
   font-size: 2rem;
+  cursor: pointer;
 }
-.payment-betalkort:hover {
-  box-shadow: 0.05rem 0.05rem 0.05rem rgb(24, 24, 24);
+.payment:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
-.payment-betalkort p {
+.payment p {
   margin-left: 2rem;
 }
 .betalkort-logo {
@@ -58,19 +60,7 @@
   right: 25%;
   position: absolute;
 }
-.payment-paypal {
-  width: 100%;
-  height: 25%;
-  display: flex;
-  align-items: center;
-  font-size: 2rem;
-}
-.payment-paypal:hover {
-  box-shadow: 0.05rem 0.05rem 0.05rem rgb(24, 24, 24);
-}
-.payment-paypal p {
-  margin-left: 2rem;
-}
+
 .paypal-logo {
   max-height: 8%;
   right: 20%;
