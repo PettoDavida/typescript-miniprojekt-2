@@ -39,7 +39,7 @@ span{
     line-height: 2.5rem;
 }
 
-#textInput{
+.textInput{
     border: 0;
     z-index: 1;
     background-color: transparent;
@@ -48,7 +48,7 @@ span{
     padding: 0.25rem 0;
 }
 
-#textInput:focus, #textInput:valid{
+.textInput:focus, .textInput:valid{
     outline: 0;
     border-bottom-color: #D15814;
 }
