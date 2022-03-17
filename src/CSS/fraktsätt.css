@@ -66,7 +66,6 @@ span{
     animation-duration: 1s;
     background-color: rgba(190, 190, 190, 0.473);
     margin: 2rem 0rem 2rem 0rem;
-    /* overflow: hidden; */
 }
 
 .leveransDag{
@@ -79,12 +78,11 @@ span{
 }
 
 @keyframes open {
-    from{ opacity: 0; height:10%}
-    to{ opacity: 1; height: 70%;}
+    from{ opacity: 0;}
+    to{ opacity: 1;}
 }
 
 .inactive{
-    /* display: none; */
     height: 0;
     opacity: 0;
     position: absolute;
@@ -92,7 +90,6 @@ span{
 }
 
 .postnordDiv, .postnordHemDiv, .DHLDiv, .instaboxDiv{
-    /* border: 2px solid black; */
     width: 100%;
     min-height:4rem;
 }
