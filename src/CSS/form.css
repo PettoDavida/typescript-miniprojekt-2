@@ -34,7 +34,7 @@ span{
 
 .inputDiv{
     height: 70%;
-    width: 70%;
+    width: 10%;
     flex-direction: column;
     line-height: 2.5rem;
 }
@@ -46,6 +46,7 @@ span{
     border-bottom: 2px solid rgb(204, 204, 204);
     font: inherit;
     padding: 0.25rem 0;
+    margin-bottom: 2.5rem;
 }
 
 .textInput:focus, .textInput:valid{
@@ -54,18 +55,19 @@ span{
 }
 
 #inputLabel{
-    transform: translateY(-2.5rem);
+    transform: translate(-10.5rem);
+    position: absolute;
     color: #8597a3;
     transition: .25s ease;
 }
-input:focus + #inputLabel{
+.textInput:focus + #inputLabel{
     color: #D15814;
-	transform: translateY(-5.5rem);
-}
+	transform: translate(-10.5rem, -2.5rem);
+} 
 
-input:valid + #inputLabel{
+.textInput:valid + #inputLabel{
     color: #D15814;
-	transform: translateY(-5.5rem);
+	transform: translate(-10.5rem, -2.5rem);
 }
 
 .buttonDiv{
