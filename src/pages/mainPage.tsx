@@ -4,9 +4,9 @@ function MainPage(){
 
     
     return (
-        <div>
-            
-        </div>
+        <main>
+            <h2>Welcome to our page!!</h2>
+        </main>
     )
     
 }
