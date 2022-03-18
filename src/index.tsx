@@ -6,9 +6,11 @@ import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import ProductPage from './pages/productPage';
 import NotFoundPage from './pages/notFoundPage';
 import ProductsPage from './pages/productsPage';
+import Header from './components/header';
 
 ReactDOM.render(
   <BrowserRouter>
+  <Header/>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path='productspage' element={<ProductsPage/>}>

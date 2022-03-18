@@ -15,7 +15,7 @@ function ProductPage(){
             return(
                 <div>
                     <h1>{clothes[index].name}</h1>
-                    <img src={clothes[index].image} alt="" />
+                    <img className="productImg" src={clothes[index].image} alt="" />
                 </div>
             )
         }
