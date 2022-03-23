@@ -1,136 +1,124 @@
 import React, { useState } from 'react'
 import "../CSS/form.css"
-import {Formik, useFormik} from 'formik'
-
-
-
-// const validate = formik.values => {
-//   const errors = {};
-//   if (!values.firstName) {
-//     errors.firstName = 'Required';
-//   } else if (values.firstName.length > 15) {
-//     errors.firstName = 'Must be 15 characters or less';
-//   }
-  
-//   if (!values.lastName) {
-//     errors.lastName = 'Required';
-//   } else if (values.lastName.length > 20) {
-//     errors.lastName = 'Must be 20 characters or less';
-//   }
-  
-//   if (!values.email) {
-//     errors.email = 'Required';
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-//     errors.email = 'Invalid email address';
-//   }
-  
-//   return errors;
-// };
+import { useFormik } from "formik";
+import * as Yup from 'yup';
 
 
 function Form() {
+
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required("Förnamn är obligatoriskt"),
+    lastName: Yup.string().required("Efternamn är obligatoriskt"),
+    email: Yup.string().required("Email är obligatoriskt").email("Formatet på email är fel"),
+    phoneNumber: Yup.number().typeError("Telefonnummer får endast bestå av siffror")
+      .required("Telefonnummer är obligatoriskt")
+      .min(9, "Telefonnummer måste bestå av minst 9 siffror")
+      .max(20, "Telefonnummer får max bestå af 20 siffror"),
+    streetAddress: Yup.string()
+      .required("Adress är obligatoriskt")
+      .min(8, "Adress måste bestå av minst 8 siffror")
+  });
+  
   const formik = useFormik({
     initialValues: {
+      firstName: '',
+      lastName: '',
       email: '',
       phoneNumber: '',
       streetAddress: '',
-      firstName: '',
-      lastName: '',
     },
-    // validate,
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    validationSchema,
+    onSubmit: (data) => {
+      console.log(JSON.stringify(data, null, 2));
     },
-  });
-  
-  
-  
+  });   
 
-  // const [telefonnummer, setTelefonnummer] = useState('');
-  // const [adress, setAdress] = useState('');
-  // console.log(telefonnummer)
-  // console.log(adress)
   return (
-    
     <div className="mainDiv">
         <div className="formDiv">
-            {/* <span>Ange kontaktuppgifter för att slutföra beställningen</span>
-            <div className='inputDiv'>
-            
-            <input name='Förnamn' className="textInput" type="text" required minLength={1} autoComplete="given-name" />
-            <label id="inputLabel" htmlFor="Förnamn">Förnamn</label>
-
-            <input name='Efternamn' className="textInput" type="text" required minLength={1} autoComplete="family-name" />
-            <label id="inputLabel" htmlFor="Efternamn">Efternamn</label>
-
-            <input name='Mail' className="textInput" type="text" required minLength={1} autoComplete="email" />
-            <label id="inputLabel" htmlFor="Mail">Mail</label>
-
-            <input name='Telefonnummer' className="textInput" value={telefonnummer} onInput={e => setTelefonnummer(e.currentTarget.value)} type="text" required minLength={1} autoComplete="tel" />
-            <label id="inputLabel" htmlFor="Telefonnummer">Telefonnummer</label>
-
-            <input name='Adress' className="textInput" value={adress} onInput={e => setAdress(e.currentTarget.value)} type="text" required minLength={1} autoComplete="street-address" />
-            <label id="inputLabel" htmlFor="Adress">Adress</label>
-
-            </div> */}
             <span>Ange kontaktuppgifter för att slutföra beställningen</span>
 
             <div className="inputDiv">
             <form onSubmit={formik.handleSubmit}>
+              {formik.touched.firstName && formik.errors.firstName ? <div className="errorMessage">{formik.errors.firstName}</div>: null}
               <input 
               type="text" 
               id="firstName"
               name="firstName"
               className='textInput'
               required minLength={1}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.firstName}
               />
               <label id="inputLabel" htmlFor="firstName">Förnamn</label>
 
+
+              {formik.touched.lastName && formik.errors.lastName ? <div className="errorMessage">{formik.errors.lastName}</div>: null}
               <input 
               type="text" 
               id="lastName"
               name="lastName"
               className='textInput'
               required minLength={1}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.lastName}
               />
               <label id="inputLabel" htmlFor="lastName">Efternamn</label>
 
+
+              {formik.touched.email && formik.errors.email ? <div className="errorMessage">{formik.errors.email}</div>: null}
               <input 
               className='textInput'
               type="email" 
               id="email"
               name="email"
               onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
               value={formik.values.email}
               required minLength={1}
               />
               <label id="inputLabel" htmlFor="email">Email</label>
 
+
+              {formik.touched.phoneNumber && formik.errors.phoneNumber ? <div className="errorMessage">{formik.errors.phoneNumber}</div>: null}
               <input 
               type="text" 
               id="phoneNumber"
               name="phoneNumber"
               className='textInput'
               required minLength={1}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phoneNumber}
               />
               <label id="inputLabel" htmlFor="phoneNumber">Telefonnummer</label>
 
+
+              {formik.touched.streetAddress && formik.errors.streetAddress ? <div className="errorMessage">{formik.errors.streetAddress}</div>: null}
               <input 
               type="text" 
               id="streetAddress"
               name="streetAddress"
               className='textInput'
               required minLength={1}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.streetAddress}
               />
               <label id="inputLabel" htmlFor="adress">Adress</label>
+
+
+            <div className="buttonDiv">
+                <button  type='submit' className='buyButton'>Slutför beställning</button>
+                </div>
             </form>
             </div>
-            <div className="buttonDiv">
-                <button type='submit' className='buyButton'>Slutför beställning</button>
-                </div>
             </div>
         </div>
   )
 }
+
 
 export default Form

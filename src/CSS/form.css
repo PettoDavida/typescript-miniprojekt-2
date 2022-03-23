@@ -75,6 +75,8 @@ span{
     width: 100%;
     position: absolute;
     bottom: 0;
+    right: 50%;
+    transform:translateX(50%);
 }
 
 .buyButton{
@@ -87,4 +89,10 @@ span{
 	color: white;
     background-color: #D15814;
 	border: 0;
+}
+
+.errorMessage{
+    color:red;
+    position: absolute;
+    margin-left: 10rem;
 }
