@@ -10,15 +10,14 @@ function Form() {
     firstName: Yup.string().required("Förnamn är obligatoriskt"),
     lastName: Yup.string().required("Efternamn är obligatoriskt"),
     email: Yup.string().required("Email är obligatoriskt").email("Formatet på email är fel"),
-    phoneNumber: Yup.number().typeError("Telefonnummer får endast bestå av siffror")
+    phoneNumber: Yup.string().typeError("Telefonnummer får endast bestå av siffror")
       .required("Telefonnummer är obligatoriskt")
       .min(9, "Telefonnummer måste bestå av minst 9 siffror")
-      .max(20, "Telefonnummer får max bestå af 20 siffror"),
+      .max(12, "Telefonnummer får max bestå av 12 siffror"),
     streetAddress: Yup.string()
-      .required("Adress är obligatoriskt")
-      .min(8, "Adress måste bestå av minst 8 siffror")
+    .required("Adress är obligatoriskt")
+    .min(8, "Adress måste bestå av minst 8 siffror")
   });
-  
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -46,7 +45,7 @@ function Form() {
               id="firstName"
               name="firstName"
               className='textInput'
-              required minLength={1}
+              required
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.firstName}
@@ -60,7 +59,7 @@ function Form() {
               id="lastName"
               name="lastName"
               className='textInput'
-              required minLength={1}
+              required 
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.lastName}
@@ -77,18 +76,18 @@ function Form() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              required minLength={1}
+              required
               />
               <label id="inputLabel" htmlFor="email">Email</label>
 
 
               {formik.touched.phoneNumber && formik.errors.phoneNumber ? <div className="errorMessage">{formik.errors.phoneNumber}</div>: null}
               <input 
-              type="text" 
+              type="number" 
               id="phoneNumber"
               name="phoneNumber"
               className='textInput'
-              required minLength={1}
+              required
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.phoneNumber}
@@ -102,7 +101,7 @@ function Form() {
               id="streetAddress"
               name="streetAddress"
               className='textInput'
-              required minLength={1}
+              required
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.streetAddress}
