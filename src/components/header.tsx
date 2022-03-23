@@ -4,6 +4,7 @@ import ShoppingCart from "./shoppingCart"
 
 function Header(){
 
+    
 
     return (
         <header>
