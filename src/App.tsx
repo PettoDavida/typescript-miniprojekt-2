@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
@@ -11,6 +12,14 @@ import ProductsPage from './pages/productsPage';
 
 
 function App() {
+
+
+  const [localCart] = useState(() => {
+      const persistedCart = localStorage.getItem('cart')
+      return persistedCart !== null ? JSON.parse(persistedCart) : 0
+    })
+  
+
   return (
         <BrowserRouter>
         <Provider>

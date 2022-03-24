@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useState } from "react"
+import { createContext, FC, useState } from "react"
 import { Clothing } from "./products"
 
 type cartType = {
@@ -19,5 +19,3 @@ const Provider: FC = ({children}) => {
 }
 
 export default Provider
-
-export const useCart = () => useContext(Context) 

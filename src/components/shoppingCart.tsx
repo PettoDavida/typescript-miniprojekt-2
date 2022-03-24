@@ -1,12 +1,9 @@
-import { useContext } from "react"
 import { HiOutlineShoppingCart } from "react-icons/hi"
-import { Context } from "./cartContext"
+import LocalCart from "./localStorage"
 
 function ShoppingCart(){
 
-    const cart = useContext(Context)
-
-    console.log(cart)
+    LocalCart()
 
     return(
         <h3><HiOutlineShoppingCart/></h3>

@@ -2,9 +2,9 @@ import "../CSS/header.css"
 import { Link } from "react-router-dom"
 import ShoppingCart from "./shoppingCart"
 
+
 function Header(){
 
-    
 
     return (
         <header>
