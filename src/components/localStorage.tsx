@@ -1,16 +1,32 @@
 import { useContext, useEffect } from "react"
-import { Context } from "./cartContext"
+import { productsContext } from "./context"
+import { clothes } from "./products"
 
-function LocalCart() {
-    const cart = useContext(Context)
+export function SetLocalProducts() {
+    const {products, setProducts} = useContext(productsContext)
+
+    setProducts(clothes)
 
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart))
-    }, [cart])
+        localStorage.setItem('products', JSON.stringify(clothes))
+    },[])
 
-    console.log(cart);
+    console.log(products);
     
 
 }
 
-export default LocalCart
+export function GetLocalProducts(){
+    const {setProducts} = useContext(productsContext)
+
+    useEffect(() => {
+        const prods = JSON.parse(localStorage.getItem('products') || '{}')
+        if (prods){
+            setProducts(prods)
+        }
+
+    },[])
+
+    
+}
+
