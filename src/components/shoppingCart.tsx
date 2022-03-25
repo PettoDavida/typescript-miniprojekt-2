@@ -1,14 +1,8 @@
-import { Badge, Button, Drawer, Typography } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import PaymentIcon from '@mui/icons-material/Payment';
+import { HiOutlineShoppingCart } from "react-icons/hi"
 import { cartContext } from "./context"
-import { Clothing } from "./products";
-import "../CSS/shoppingCart.css"
 
 function ShoppingCart(){
-
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
     const cart = useContext(cartContext)
     const [itemsInCart, setItemsInCart]= useState(Number)
@@ -20,32 +14,7 @@ function ShoppingCart(){
     
 
     return(
-        <div>
-            <Button onClick={() => setIsDrawerOpen(true)}>
-                <Badge badgeContent={itemsInCart} color="primary">
-                    <ShoppingCartIcon color="action" />
-                </Badge>
-            </Button>
-            <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-                <Button>
-                    <PaymentIcon color="action"/>
-                </Button>
-                {cart.cart.map((_object: Clothing, _i: number) => {
-                    return(
-                        <div className="cartItemDiv">
-                            <img className="cartImg" src={_object.image} alt="" />
-                            <Typography variant="h6">
-                                {_object.name}
-                            </Typography>
-                        </div>
-                    )
-                })}
-            </Drawer>
-        </div>
-        
-
-
-        
+        <h3><HiOutlineShoppingCart/>{itemsInCart}</h3>
     )
 }
 

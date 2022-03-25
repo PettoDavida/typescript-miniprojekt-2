@@ -1,4 +1,3 @@
-import { Button } from "@mui/material"
 import { useContext } from "react"
 import "../CSS/product.css"
 import { cartContext } from "./context"
@@ -12,16 +11,16 @@ function ProductCard(prod: Clothing){
             <img className="productImg" src={prod.image} alt="" /> 
             <h3 className="productName">{prod.name}</h3>
             {cart.find(element=>element.name === prod.name) ? (
-        <Button
-          variant="outlined"
+        <button
+          className="add remove"
           onClick={() => setCart(cart.filter((c) => c.name !== prod.name))}
         >
           Remove from Cart
-        </Button>
+        </button>
       ) : (
-        <Button variant="outlined" onClick={() => {setCart([...cart, prod])}}>
+        <button className="add" onClick={() => {setCart([...cart, prod])}}>
           Add to Cart
-        </Button>
+        </button>
       )}
         </div>
     )
