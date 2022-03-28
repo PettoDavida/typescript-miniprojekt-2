@@ -32,7 +32,7 @@ function ShoppingCart(){
                 </Button>
                 {cart.cart.map((_object: Clothing, _i: number) => {
                     return(
-                        <div className="cartItemDiv">
+                        <div className="cartItemDiv" key={_i}>
                             <img className="cartImg" src={_object.image} alt="" />
                             <Typography variant="h6">
                                 {_object.name}

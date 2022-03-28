@@ -1,0 +1,4 @@
+.newProductForms{
+    display: flex;
+    flex-direction: column;
+}
