@@ -10,8 +10,7 @@ function Form() {
     firstName: Yup.string().required("Förnamn är obligatoriskt"),
     lastName: Yup.string().required("Efternamn är obligatoriskt"),
     email: Yup.string().required("Email är obligatoriskt").email("Formatet på email är fel"),
-    phoneNumber: Yup.string().typeError("Telefonnummer får endast bestå av siffror")
-      .required("Telefonnummer är obligatoriskt")
+    phoneNumber: Yup.string().required("Telefonnummer är obligatoriskt")
       .min(9, "Telefonnummer måste bestå av minst 9 siffror")
       .max(12, "Telefonnummer får max bestå av 12 siffror"),
     streetAddress: Yup.string()
