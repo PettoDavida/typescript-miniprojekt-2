@@ -6,8 +6,6 @@ import instaboxLogo from '../Images/instabox-logo.png'
 
 function Fraktsätt() {
 
-    let formDiv = document.getElementsByClassName("formDiv");
-
     const[value, setValue] = useState(0);
     let postnordExtended = "inactive"
     let postnordHemExtended = "inactive"
