@@ -39,8 +39,7 @@ function AdminPage(){
                             <NewProduct/>
                         </DialogContent>
                         <DialogActions>
-                          <Button onClick={handleClose}>Cancel</Button>
-                          <Button onClick={handleClose}>Subscribe</Button>
+                          <Button onClick={handleClose}>Close</Button>
                         </DialogActions>
                     </Dialog>
                 </div>
