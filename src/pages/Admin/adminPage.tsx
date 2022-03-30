@@ -33,8 +33,7 @@ function AdminPage(){
                         <DialogTitle>Subscribe</DialogTitle>
                         <DialogContent>
                           <DialogContentText>
-                            To subscribe to this website, please enter your email address here. We
-                            will send updates occasionally.
+                            
                           </DialogContentText>
                             <NewProduct/>
                         </DialogContent>
@@ -46,7 +45,7 @@ function AdminPage(){
         <div className="productsDiv">
             {products.products.map((_object: Clothing, _i: number) => {
                 return(
-                    <AdminProductCard name={_object.name} image={_object.image} price={_object.price} type={_object.type} key={_i}/>
+                    <AdminProductCard id={_object.id} name={_object.name} image={_object.image} price={_object.price} type={_object.type} key={_i}/>
                 )
                 })}
                 

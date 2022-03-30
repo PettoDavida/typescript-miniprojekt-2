@@ -20,7 +20,7 @@ function AdminProductCard(prod: Clothing){
             <Button
               variant="contained"
               color='error'
-              onClick={() => setProducts(products.filter((c) => c.name !== prod.name))}
+              onClick={() => setProducts(products.filter((c) => c.id !== prod.id))}
             >
               Remove from Products
             </Button>

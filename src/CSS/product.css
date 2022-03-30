@@ -10,13 +10,6 @@
     width: 25rem;
 }
 
-.productDiv :hover{
-    border-style: solid;
-    border-width: 0 1px;
-    border-color: rgba(41, 41, 41, 0.3);
-    opacity: 0.5;
-}
-
 .productImg{
     width: 20rem;
     height: 20rem;

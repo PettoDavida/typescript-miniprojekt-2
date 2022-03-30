@@ -18,6 +18,8 @@ function ShoppingCart(){
         console.log(cart);
     }, [cart])
     
+    
+    
 
     return(
         <div>
