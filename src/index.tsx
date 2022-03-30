@@ -1,13 +1,26 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import ProductPage from './pages/productPage';
+import NotFoundPage from './pages/notFoundPage';
+import ProductsPage from './pages/productsPage';
+import Header from './components/header';
+import AdminPage from './pages/adminPage';
+import MainPage from './pages/mainPage';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+  <Header/>
+    <Routes>
+      <Route path="/" element={<MainPage />}/>
+      <Route path='productspage' element={<ProductsPage/>}/>
+      <Route path='productspage/:clothing' element={<ProductPage />} />
+      <Route path='admin' element={<AdminPage/>} />
+
+      <Route path='*' element={<NotFoundPage />} />
+    </Routes>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

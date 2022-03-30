@@ -1,0 +1,21 @@
+header{
+    background-color: aqua;
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flexHeaderLeft{
+    display: flex;
+    width: 15%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flexHeaderRight{
+    display: flex;
+    width: 10%;
+    justify-content: space-around;
+    align-items: center;
+}
