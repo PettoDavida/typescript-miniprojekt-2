@@ -1,11 +1,13 @@
-import "../CSS/Sidebar"
+import "../CSS/Sidebar.css"
 
 function Sidebar(){
 
     
-    return {
-
-    }
+    return (
+        <div>
+            
+        </div>
+    )
 }
 
 export default Sidebar
