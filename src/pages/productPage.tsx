@@ -9,6 +9,7 @@ function ProductPage(){
     let decodedURL = decodeURI(getURL)
     let itemFromURL = getClothingItemFromFullURL(decodedURL)
 
+
     for (let index = 0; index < clothes.length; index++) {
         console.log(clothes[index].name)
         if (itemFromURL === clothes[index].name) {
