@@ -66,3 +66,35 @@
   right: 20%;
   position: absolute;
 }
+
+.swish-payment {
+  display: none;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swish-qr {
+  max-height: 40%;
+}
+
+#TextboxSwish {
+  width: 60%;
+  height: 3%;
+}
+
+#paymentButtonSwish {
+  width: 30%;
+  height: 5%;
+  border-radius: 0.5rem;
+  color: rgb(218, 218, 218);
+  border-color: rgb(96, 198, 142);
+  background-color: rgb(24, 24, 24);
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: unset;
+}
