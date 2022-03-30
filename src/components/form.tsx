@@ -10,9 +10,8 @@ function Form() {
     firstName: Yup.string().required("Förnamn är obligatoriskt"),
     lastName: Yup.string().required("Efternamn är obligatoriskt"),
     email: Yup.string().required("Email är obligatoriskt").email("Formatet på email är fel"),
-    phoneNumber: Yup.string().required("Telefonnummer är obligatoriskt")
-      .min(9, "Telefonnummer måste bestå av minst 9 siffror")
-      .max(12, "Telefonnummer får max bestå av 12 siffror"),
+    phoneNumber: Yup.number().required("Telefonnummer är obligatoriskt")
+    .typeError("Du får endast ange siffror i detta fältet"),
     streetAddress: Yup.string()
     .required("Adress är obligatoriskt")
     .min(8, "Adress måste bestå av minst 8 siffror")
@@ -82,7 +81,7 @@ function Form() {
 
               {formik.touched.phoneNumber && formik.errors.phoneNumber ? <div className="errorMessage">{formik.errors.phoneNumber}</div>: null}
               <input 
-              type="number" 
+              type="text" 
               id="phoneNumber"
               name="phoneNumber"
               className='textInput'
