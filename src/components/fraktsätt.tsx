@@ -30,7 +30,7 @@ function Fraktsätt() {
 
             <div className="postnordDiv">
             <input name='Radio' id="postnord" type="radio" onClick={() => setValue(1)}/>
-            <label id="inputLabel" htmlFor="Postnord">Postnord Ombud</label>
+            <label id="inputLabel" htmlFor="postnord">Postnord Ombud</label>
             <img src={postnordLogo} alt="" />
             <div className={postnordExtended}>
             <div className='leveransDag'>
@@ -50,7 +50,7 @@ function Fraktsätt() {
             
             <div className="postnordHemDiv">
             <input name='Radio' id="postnordHem" type="radio" onClick={() => setValue(2)} />
-            <label id="inputLabel" htmlFor="PostnordHem">Postnord hemleverans</label>
+            <label id="inputLabel" htmlFor="postnordHem">Postnord hemleverans</label>
             <img src={postnordLogo} alt="" />
             <div className={postnordHemExtended}>
             <div className='leveransDag'>
@@ -90,7 +90,7 @@ function Fraktsätt() {
 
             <div className="instaboxDiv">
             <input name='Radio' id="instabox" type="radio" onClick={() => setValue(4)} />
-            <label id="inputLabel" htmlFor="Instabox">Instabox</label>
+            <label id="inputLabel" htmlFor="instabox">Instabox</label>
             <img src={instaboxLogo} alt="" />
             <div className={instaboxExtended}>
             <div className='leveransDag'>
