@@ -1,0 +1,10 @@
+.cartItemDiv{
+    height: 25rem;
+    width: 25rem;
+}
+
+.cartImg{
+    width: 20rem;
+    height: 20rem;
+    object-fit: contain;
+}
