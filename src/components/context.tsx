@@ -1,9 +1,14 @@
 import { createContext, FC, useState } from "react"
 import { Clothing } from "./products"
 
+export interface cartItem{
+    clothing: Clothing
+    amount: number
+}
+
 type cartType = {
-    cart: Clothing[];
-    setCart: React.Dispatch<React.SetStateAction<Clothing[]>>
+    cart: cartItem[]
+    setCart: React.Dispatch<React.SetStateAction<cartItem[]>>
 }
 
 export const cartContext = createContext<cartType>({} as cartType)
@@ -17,7 +22,7 @@ export const productsContext = createContext<productType>({} as productType)
 
 
 const Provider: FC = ({children}) => {
-    const [cart, setCart] = useState([] as Clothing[])
+    const [cart, setCart] = useState([] as cartItem[])
     const [products, setProducts] = useState([] as Clothing[])
 
 

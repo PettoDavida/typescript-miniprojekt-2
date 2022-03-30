@@ -1,6 +1,6 @@
 
 export interface Clothing{
-    id: number,
+    id: number;
     name: string,
     image: string,
     price: number,
@@ -20,10 +20,10 @@ const orangeHoodieURL= 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/im
 export const clothes: Clothing[] = [
     {'id': 0, 'name': "white shirt",'image': whiteShirtURL,'price': 200,'type': 'shirt'},
     {'id': 1, 'name': "black shirt",'image': blackShirtURL,'price': 250,'type': 'shirt'},
-    {'id': 2, 'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants'},
-    {'id': 3, 'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants'},
-    {'id': 4, 'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie'},
-    {'id': 5, 'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie'},
+    {'id': 3, 'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants'},
+    {'id': 4, 'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants'},
+    {'id': 5, 'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie'},
+    {'id': 6, 'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie'},
 
 ]
 

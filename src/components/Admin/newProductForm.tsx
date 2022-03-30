@@ -12,7 +12,7 @@ import { Clothing } from '../products';
 
 
  interface MyFormValues {
-   productName: string;
+    productName: string;
     productImage: string
     productPrice: number
     productType: string
@@ -80,3 +80,4 @@ import { Clothing } from '../products';
      </div>
    );
  };
+

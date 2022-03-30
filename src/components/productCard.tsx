@@ -14,21 +14,25 @@ function ProductCard(prod: Clothing){
             <img className="productImg" src={prod.image} alt="" /> 
             <h3 className="productName">{prod.name}</h3>
           </Link>
-            {cart.find(element=>element.name === prod.name) ? (
+            <h2>{prod.price}kr</h2>
+            {cart.find(element=>element.clothing.id === prod.id) ? (
               <div>
-                <Button variant="outlined" onClick={() => {setCart([...cart, prod])}}>
+                <Button 
+                  variant="outlined" 
+                  onClick={() => {cart[cart.findIndex(element=>element.clothing.id === prod.id)].amount += 1; setCart([...cart])}}
+                >
                 Add to Cart
                 </Button>
 
                 <Button
                   variant="outlined"
-                  onClick={() => setCart(cart.filter((c) => c.id !== prod.id))}
+                  onClick={() => setCart(cart.filter((c) => c.clothing.id !== prod.id))}
                 >
                   Remove All from Cart
                 </Button>
               </div>
             ) : (
-              <Button variant="outlined" onClick={() => {setCart([...cart, prod])}}>
+              <Button variant="outlined" onClick={() => {setCart([...cart, {clothing: prod, amount: 1}])}}>
                 Add to Cart
               </Button>
             )}
