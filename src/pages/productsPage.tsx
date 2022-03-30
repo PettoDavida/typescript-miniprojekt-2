@@ -16,10 +16,10 @@ function ProductsPage(){
     }    
     
     return (
-        <div className="containerDiv">
+        <div className="productsDiv">
             {products.products.map((_object: Clothing, _i: number) => {
                 return(
-                    <ProductCard name={_object.name} image={_object.image} color={_object.color} sizes={_object.sizes} type={_object.type} key={_i}/>
+                    <ProductCard name={_object.name} image={_object.image} price={_object.price} type={_object.type} key={_i}/>
                 )
                 })}
         </div>

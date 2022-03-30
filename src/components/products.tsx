@@ -2,8 +2,7 @@
 export interface Clothing{
     name: string,
     image: string,
-    color: object,
-    sizes: string[],
+    price: number,
     type: string,
 
 }
@@ -17,20 +16,13 @@ const blackPantsURL = 'https://img1.g-star.com/product/c_fill,f_auto,h_630,q_80/
 const redHoodieURL = 'https://cdn2.bigcommerce.com/n-biq04i/lk0gwzb/products/1616/images/2064/Cardinal__08936.1419662561.1280.1280.png?c=2'
 const orangeHoodieURL= 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/besthoodiefenty-1616603464.jpg?crop=1xw:0.999288256227758xh;center,top&resize=480:*'
 
-const whiteColor = {'name': 'white', 'hex': '#fff'}
-const blackColor = {'name': 'black', 'hex': '#000'}
-const beigeColor = {'name': 'beige', 'hex': '#fff'}
-const redColor = {'name': 'red', 'hex': '#fff'}
-const orangeColor = {'name': 'orange', 'hex': '#fff'}
-
-
 export const clothes: Clothing[] = [
-    {'name': "white shirt",'image': whiteShirtURL,'color': whiteColor,'sizes': ['L', 'M', 'S'], 'type': 'shirt'},
-    {'name': "black shirt",'image': blackShirtURL,'color': blackColor,'sizes': ['XXL', 'XL', 'XS'], 'type': 'shirt'},
-    {'name': "beige pants",'image': beigePantsURL,'color': beigeColor,'sizes': ['M', 'S'], 'type': 'pants'},
-    {'name': "black pants",'image': blackPantsURL,'color': blackColor,'sizes': ['XL', 'L', 'M'], 'type': 'pants'},
-    {'name': "red hoodie",'image': redHoodieURL,'color': redColor,'sizes': ['L', 'S'], 'type': 'hoodie'},
-    {'name': "orange hoodie",'image': orangeHoodieURL,'color': orangeColor,'sizes': ['S', 'XS'], 'type': 'hoodie'},
+    {'name': "white shirt",'image': whiteShirtURL,'price': 200,'type': 'shirt'},
+    {'name': "black shirt",'image': blackShirtURL,'price': 250,'type': 'shirt'},
+    {'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants'},
+    {'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants'},
+    {'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie'},
+    {'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie'},
 
 ]
 
