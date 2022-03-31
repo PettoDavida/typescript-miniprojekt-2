@@ -9,12 +9,12 @@ function Header(){
     return (
         <header>
             <div className="flexHeaderLeft">
-                <Link to="/"><h1>Hello</h1></Link>
-                <Link to="/productspage"><h3>Produkter</h3></Link>
+                <Link to="/"><span className="headerSpan">Home</span></Link>
+                <Link to="/productspage"><span className="headerSpan">Produkter</span></Link>
             </div>
             <div className="flexHeaderRight">
                 <ShoppingCart />
-                <Link to="/admin"><h3>Admin</h3></Link>
+                <Link to="/admin"><span className="headerSpan">Admin</span></Link>
             </div>
         </header>
     )
