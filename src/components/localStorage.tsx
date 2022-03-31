@@ -3,16 +3,13 @@ import { productsContext } from "./context"
 import { clothes } from "./products"
 
 export function SetLocalProducts() {
-    const {products, setProducts} = useContext(productsContext)
+    const {setProducts} = useContext(productsContext)
 
     setProducts(clothes)
 
     useEffect(() => {
         localStorage.setItem('products', JSON.stringify(clothes))
     },[])
-
-    console.log(products);
-    
 
 }
 
