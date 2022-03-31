@@ -1,12 +1,13 @@
-
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useContext } from "react";
-import { cartContext } from "../components/context";
-import { clothes } from "../components/products";
+import { cartContext, productsContext } from "../components/context";
 import "../CSS/productPage.css"
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 
 function ProductPage(){
 
+  const products = useContext(productsContext)
   const {cart, setCart} = useContext(cartContext)
 
     let getURL = window.location.href
@@ -15,29 +16,32 @@ function ProductPage(){
     let itemFromURL = getClothingItemFromFullURL(decodedURL)
 
 
-    for (let index = 0; index < clothes.length; index++) {
-        console.log(clothes[index].name)
-        if (itemFromURL === clothes[index].name) {
+    for (let index = 0; index < products.products.length; index++) {
+        
+        if (itemFromURL === products.products[index].id.toString()) {
+          // console.log(products.products[index].about)
             return(
                 <div>
-                    <h1>{clothes[index].name}</h1>
-                    <img className="productImg" src={clothes[index].image} alt="" />
-                    {cart.find(element=>element.clothing.id === clothes[index].id) ? (
+                    <Typography variant="h2" sx={{ textTransform: 'capitalize' }}>
+                      {products.products[index].name}
+                    </Typography>
+                      <img className="productImg" src={products.products[index].image} alt="" />
+                    <Typography variant="h6">
+                      {products.products[index].about}
+                    </Typography>
+                    {cart.find(element=>element.clothing.id === products.products[index].id) ? (
                     <div>
-                      <Button variant="outlined" onClick={() => {cart[cart.findIndex(element=>element.clothing.id === clothes[index].id)].amount += 1; setCart([...cart])}}>
-                      Add to Cart
+                      <Button variant="outlined" onClick={() => {cart[cart.findIndex(element=>element.clothing.id === products.products[index].id)].amount += 1; setCart([...cart])}}>
+                        <AddShoppingCartIcon/>
                       </Button>
                             
-                      <Button
-                        variant="outlined"
-                        onClick={() => setCart(cart.filter((c) => c.clothing.id !== clothes[index].id))}
-                      >
-                        Remove All from Cart
+                      <Button variant="outlined" color="warning" onClick={() => setCart(cart.filter((c) => c.clothing.id !== products.products[index].id))}>
+                        <RemoveShoppingCartIcon/>
                       </Button>
                     </div>
                     ) : (
-                      <Button variant="outlined" onClick={() => {setCart([...cart, {clothing: clothes[index], amount: 1}])}}>
-                        Add to Cart
+                      <Button variant="outlined" onClick={() => {setCart([...cart, {clothing: products.products[index], amount: 1}])}}>
+                        <AddShoppingCartIcon/>
                       </Button>
                     )}
                 </div>
