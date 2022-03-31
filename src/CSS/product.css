@@ -6,21 +6,51 @@
 }
 
 .productDiv{
-    height: 30rem;
-    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 20rem;
 }
 
 .productImg{
-    width: 20rem;
-    height: 20rem;
+    width: 10rem;
+    height: 10rem;
     object-fit: contain;  
 }
 
-.productImg :hover{
-    opacity: 0.5;
+.nameAndPrice{
+    display: flex;
+    justify-content: space-between;
 }
 
-.productName{
-text-align: center;
+.productCardButtons{
+    display: flex;
+    flex-direction: column;
 }
 
+@media screen and (min-width: 480px) {
+    .productDiv{
+        width: 50%;
+        height: 40vh;
+    }
+    .productImg{
+        width: 15rem;
+        height: 15rem;
+    }
+    .productCardButtons{
+        flex-direction: row;
+    }
+
+}
+
+@media screen and (min-width: 980px) {
+    .productDiv{
+        width: 33%;
+        height: 50vh;
+    }
+    .productImg{
+        width: 20rem;
+        height: 20rem;
+    }
+}
