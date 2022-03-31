@@ -1,4 +1,8 @@
-.newProductForms{
-    display: flex;
-    flex-direction: column;
+.newProductInput{
+    width: 8rem;
+}
+
+.newProductTextArea{
+    width: 12rem;
+    height: 10rem;
 }
