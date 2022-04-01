@@ -38,7 +38,7 @@ import "../../CSS/newProductForm.css"
    productAbout: Yup.string().required("Produkten måste ha en beskrivning")
  })
  
- export const NewProduct: React.FC<{}> = () => {
+ export function NewProduct(props: any) {
 
   const {products, setProducts} = useContext(productsContext)
 
@@ -63,6 +63,7 @@ import "../../CSS/newProductForm.css"
          onSubmit={(values, actions) => {
            addProduct(values)
            actions.setSubmitting(false);
+          props.onCloseModal()
          }}
          validationSchema={yupValidate}
        >
