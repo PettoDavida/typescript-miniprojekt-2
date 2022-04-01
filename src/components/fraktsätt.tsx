@@ -28,8 +28,8 @@ function Fraktsätt() {
 
       console.log(value)
   return (
-    <div className="mainDiv">
-        <div className="formDiv">
+    <div className="mainDivFrakt">
+        <div className="formDivFrakt">
             <span className='fraktSpan'>Välj fraktsätt</span>            
 
             <div className="postnordDiv">

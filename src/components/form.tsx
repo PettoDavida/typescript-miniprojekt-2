@@ -37,7 +37,7 @@ function Form() {
         <div className="formDiv">
             <span className="formTitle">Ange kontaktuppgifter för att slutföra beställningen</span>
 
-            <div className="inputDiv">
+            <div className="inputDivForm">
             <form onSubmit={formik.handleSubmit}>
               {formik.touched.firstName && formik.errors.firstName ? <div className="errorMessage">{formik.errors.firstName}</div>: null}
               <input 
