@@ -2,6 +2,7 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/
 import { useContext, useEffect, useState } from "react"
 import { productsContext } from "../context"
 import "../../CSS/product.css"
+import "../../CSS/adminProduct.css"
 import {Clothing} from "../products"
 import { EditProduct } from "./editProductForm"
 

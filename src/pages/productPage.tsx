@@ -1,4 +1,4 @@
-import { Alert, Button, Typography } from "@mui/material";
+import { Alert, Button } from "@mui/material";
 import { useContext, useState } from "react";
 import { cartContext, productsContext } from "../components/context";
 import "../CSS/productPage.css"
@@ -37,15 +37,14 @@ function ProductPage(){
           }
             return(
                 <div>
-                    <Typography variant="h2" sx={{ textTransform: 'capitalize' }}>
+                    <span className="productPageTitle">
                       {products.products[index].name}
-                    </Typography>
-                      <img className="productImg" src={products.products[index].image} alt="" />
-                    <Typography variant="h6">
-                      {products.products[index].about}
-                    </Typography>
-                    {cart.find(element=>element.clothing.id === products.products[index].id) ? (
-                    <div className="productCardButtons">
+                    </span>
+                    <div className="productPageImgAndAbout">
+                      <div className="productPageImgAndButtons">
+                      <img className="productPageImg" src={products.products[index].image} alt="" />
+                      {cart.find(element=>element.clothing.id === products.products[index].id) ? (
+                    <div className="productCardButtons productPageButtons">
                       <Button variant="outlined" onClick={() => {cart[cart.findIndex(element=>element.clothing.id === products.products[index].id)].amount += 1; setCart([...cart])}}>
                         <AddShoppingCartIcon/>
                       </Button>
@@ -55,10 +54,18 @@ function ProductPage(){
                       </Button>
                     </div>
                     ) : (
-                      <Button variant="outlined" onClick={() => {onAddNewProduct()}}>
+                      <div>
+                      <Button className="productPageButtons" variant="outlined" onClick={() => {onAddNewProduct()}}>
                         <AddShoppingCartIcon/>
                       </Button>
+                      </div>
                     )}
+                    </div>
+                    <span className="productPageAbout">
+                      {products.products[index].about}
+                    </span>
+                    </div>
+                    
                   <Alert style={{display: successOnAddProduct ? 'flex' : 'none'}} severity="success">Item Added to cart</Alert>  
                 </div>
             )
