@@ -32,10 +32,7 @@ function AdminPage(){
                     <Dialog open={open} onClose={handleClose}>
                         <DialogTitle>Skapa Ny Produkt</DialogTitle>
                         <DialogContent>
-                          <DialogContentText>
-                            
-                          </DialogContentText>
-                            <NewProduct/>
+                            <NewProduct onCloseModal={handleClose}/>
                         </DialogContent>
                         <DialogActions>
                           <Button onClick={handleClose}>Close</Button>
