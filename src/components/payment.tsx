@@ -8,11 +8,12 @@ import SwishLogo from '../Images/Swish.png'
 import MasterCardLogo from '../Images/Mastercard.png'
 import PayPalLogo from '../Images/Paypal.png'
 import SwishQRLogo from '../Images/SwishQR.png'
-import { cartContext } from "./context";
+import { cartContext, fraktContext } from "./context";
 
 
 function PaymentMethod() {
   const [value, setValue] = useState(0);
+  const frakt = useContext(fraktContext)
 
   const validationSchema = Yup.object().shape({
     fullName: Yup.string().required("Namn är obligatoriskt"),
@@ -222,9 +223,9 @@ function PaymentMethod() {
       <div className={priser} id="priser">
         <p>Produkt pris:{totalPriceOfItemsInCart}</p>
         <p>Moms:{totalPriceOfItemsInCart/4}</p>
-        <p>Frakt:</p>
+        <p>Frakt:{frakt.frakt}</p>
         <hr />
-        <p>Totalt:{totalPriceOfItemsInCart}</p>
+        <p>Totalt:{totalPriceOfItemsInCart + frakt.frakt}</p>
         <Stack direction="row" spacing={2}>
           <Button variant="outlined">Betala</Button>
         </Stack>
