@@ -29,6 +29,7 @@ function Form() {
     validationSchema,
     onSubmit: (data) => {
       console.log(JSON.stringify(data, null, 2));
+      navigate('frakt')
     },
   });   
 
@@ -110,7 +111,7 @@ function Form() {
 
 
             <div className="buttonDiv">
-                <button type='submit' className='buyButton' onClick={() => {navigate('frakt')}}>Slutför beställning</button>
+                <button type='submit' className='buyButton'>Slutför beställning</button>
                 </div>
             </form>
             </div>

@@ -20,18 +20,28 @@ type productType = {
 
 export const productsContext = createContext<productType>({} as productType)
 
+type fraktType = {
+    frakt: number
+    setFrakt: React.Dispatch<React.SetStateAction<number>>
+}
+
+export const fraktContext = createContext<fraktType>({} as fraktType)
+
 
 const Provider: FC = ({children}) => {
     const [cart, setCart] = useState([] as cartItem[])
     const [products, setProducts] = useState([] as Clothing[])
+    const [frakt, setFrakt] = useState(0)
 
 
     return(
-        <productsContext.Provider value={{products, setProducts}}>
-            <cartContext.Provider value={{cart, setCart}}>
-                {children}
-            </cartContext.Provider>
-        </productsContext.Provider>
+        <fraktContext.Provider value={{frakt, setFrakt}}>
+            <productsContext.Provider value={{products, setProducts}}>
+                <cartContext.Provider value={{cart, setCart}}>
+                    {children}
+                </cartContext.Provider>
+            </productsContext.Provider>
+        </fraktContext.Provider>
     )
 }
 
