@@ -35,9 +35,7 @@
 }
 
 .swish-logo {
-  max-height: 20%;
-  right: 15%;
-  position: absolute;
+  max-height: 50%;
 }
 .payment {
   width: 100%;
@@ -46,6 +44,7 @@
   align-items: center;
   font-size: 2rem;
   cursor: pointer;
+  justify-content: space-between;
 }
 .payment:hover {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
@@ -56,20 +55,17 @@
   margin-left: 2rem;
 }
 .betalkort-logo {
-  max-height: 10%;
-  right: 25%;
-  position: absolute;
+  max-height: 40%;
 }
 
 .paypal-logo {
-  max-height: 8%;
-  right: 20%;
-  position: absolute;
+  max-height: 20%;
 }
 
 .swish-payment {
   display: none;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  max-height: 70%;
   flex-direction: column;
   align-items: center;
 }
@@ -80,7 +76,10 @@
 
 #TextboxSwish {
   width: 60%;
-  height: 3%;
+  height: 80%;
+  z-index: 1000;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 #paymentButtonSwish {
@@ -97,4 +96,82 @@
 }
 .visible {
   display: unset;
+}
+
+.swishNumberDiv {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.swishNumberDiv > button {
+  z-index: 100000;
+}
+
+#priser {
+  height: auto;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  /* border: 2px solid black; */
+  /* position: absolute; */
+}
+
+#priser > hr {
+  margin-left: -1rem !important;
+}
+
+#priser button {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.betalkortForm{
+  display: flex;
+  z-index: 1000;
+}
+form{
+  width: 100%;
+  flex-wrap: wrap;
+  margin-left:1rem;
+}
+
+.errorMessage{
+  color:red;
+  position: absolute;
+  left:1rem;
+
+
+}
+
+@media screen and (max-width: 1130px) {
+  .payment {
+    flex-direction: column;
+  }
+  .paypal-logo {
+    min-height: 12%;
+  }
+  .swish-logo {
+    min-height: 40%;
+  }
+  .betalkort-logo {
+    min-height: 30%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #paymentText {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #paymentText {
+    font-size: 1rem;
+  }
+  .payment p {
+    font-size: 1rem;
+    font-weight: bold;
+  }
 }
