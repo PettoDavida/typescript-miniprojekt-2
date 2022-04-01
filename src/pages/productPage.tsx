@@ -1,5 +1,5 @@
-import { Button, Typography } from "@mui/material";
-import { useContext } from "react";
+import { Alert, Button, Typography } from "@mui/material";
+import { useContext, useState } from "react";
 import { cartContext, productsContext } from "../components/context";
 import "../CSS/productPage.css"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -10,6 +10,7 @@ function ProductPage(){
 
   const products = useContext(productsContext)
   const {cart, setCart} = useContext(cartContext)
+  const [successOnAddProduct, setSuccessOnAddProduct] = useState(false)
 
   if (localStorage.getItem('products') === null) {
       SetLocalProducts()
@@ -22,11 +23,18 @@ function ProductPage(){
     let decodedURL = decodeURI(getURL)
     let itemFromURL = getClothingItemFromFullURL(decodedURL)
 
+    
 
     for (let index = 0; index < products.products.length; index++) {
         
         if (itemFromURL === products.products[index].id.toString()) {
           // console.log(products.products[index].about)
+
+          const onAddNewProduct = () => {
+            setCart([...cart, {clothing: products.products[index], amount: 1}])
+            setSuccessOnAddProduct(true)
+            const id = setInterval(() => {setSuccessOnAddProduct(false); clearInterval(id)},500)
+          }
             return(
                 <div>
                     <Typography variant="h2" sx={{ textTransform: 'capitalize' }}>
@@ -47,10 +55,11 @@ function ProductPage(){
                       </Button>
                     </div>
                     ) : (
-                      <Button variant="outlined" onClick={() => {setCart([...cart, {clothing: products.products[index], amount: 1}])}}>
+                      <Button variant="outlined" onClick={() => {onAddNewProduct()}}>
                         <AddShoppingCartIcon/>
                       </Button>
                     )}
+                  <Alert style={{display: successOnAddProduct ? 'flex' : 'none'}} severity="success">Item Added to cart</Alert>  
                 </div>
             )
         }
