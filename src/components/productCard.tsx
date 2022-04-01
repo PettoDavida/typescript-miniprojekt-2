@@ -1,5 +1,6 @@
 import { Button } from "@mui/material"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 import "../CSS/product.css"
 import { cartContext } from "./context"
 import {Clothing} from "./products"
@@ -8,21 +9,33 @@ function ProductCard(prod: Clothing){
     const {cart, setCart} = useContext(cartContext)
 
     return(
-        <div  className="productDiv">
+        <div className="productDiv">
+          <Link to={"/productspage/" + prod.name} key={prod.id}>
             <img className="productImg" src={prod.image} alt="" /> 
             <h3 className="productName">{prod.name}</h3>
-            {cart.find(element=>element.name === prod.name) ? (
-        <Button
-          variant="outlined"
-          onClick={() => setCart(cart.filter((c) => c.name !== prod.name))}
-        >
-          Remove from Cart
-        </Button>
-      ) : (
-        <Button variant="outlined" onClick={() => {setCart([...cart, prod])}}>
-          Add to Cart
-        </Button>
-      )}
+          </Link>
+            <h2>{prod.price}kr</h2>
+            {cart.find(element=>element.clothing.id === prod.id) ? (
+              <div>
+                <Button 
+                  variant="outlined" 
+                  onClick={() => {cart[cart.findIndex(element=>element.clothing.id === prod.id)].amount += 1; setCart([...cart])}}
+                >
+                Add to Cart
+                </Button>
+
+                <Button
+                  variant="outlined"
+                  onClick={() => setCart(cart.filter((c) => c.clothing.id !== prod.id))}
+                >
+                  Remove All from Cart
+                </Button>
+              </div>
+            ) : (
+              <Button variant="outlined" onClick={() => {setCart([...cart, {clothing: prod, amount: 1}])}}>
+                Add to Cart
+              </Button>
+            )}
         </div>
     )
 

@@ -11,8 +11,6 @@ import ProductsPage from './pages/productsPage';
 
 
 function App() {
-
-
   return (
         <BrowserRouter>
           <Provider>

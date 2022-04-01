@@ -12,7 +12,7 @@ import { Clothing } from '../products';
 
 
  interface MyFormValues {
-   productName: string;
+    productName: string;
     productImage: string
     productPrice: number
     productType: string
@@ -31,7 +31,8 @@ import { Clothing } from '../products';
   const {products, setProducts} = useContext(productsContext)
 
   const addProduct = (values: any) => {
-    const apparel: Clothing = {'name': values.productName, 'image': values.productImage, 'price': values.productPrice, 'type': values.productType}
+    const newId = products[products.length-1].id + 1
+    const apparel: Clothing = {'id':newId, 'name': values.productName, 'image': values.productImage, 'price': values.productPrice, 'type': values.productType}
     setProducts([...products, apparel])
     console.log(apparel);
   }
@@ -79,3 +80,4 @@ import { Clothing } from '../products';
      </div>
    );
  };
+

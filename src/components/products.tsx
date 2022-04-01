@@ -1,5 +1,6 @@
 
 export interface Clothing{
+    id: number;
     name: string,
     image: string,
     price: number,
@@ -17,12 +18,12 @@ const redHoodieURL = 'https://cdn2.bigcommerce.com/n-biq04i/lk0gwzb/products/161
 const orangeHoodieURL= 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/besthoodiefenty-1616603464.jpg?crop=1xw:0.999288256227758xh;center,top&resize=480:*'
 
 export const clothes: Clothing[] = [
-    {'name': "white shirt",'image': whiteShirtURL,'price': 200,'type': 'shirt'},
-    {'name': "black shirt",'image': blackShirtURL,'price': 250,'type': 'shirt'},
-    {'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants'},
-    {'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants'},
-    {'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie'},
-    {'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie'},
+    {'id': 0, 'name': "white shirt",'image': whiteShirtURL,'price': 200,'type': 'shirt'},
+    {'id': 1, 'name': "black shirt",'image': blackShirtURL,'price': 250,'type': 'shirt'},
+    {'id': 3, 'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants'},
+    {'id': 4, 'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants'},
+    {'id': 5, 'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie'},
+    {'id': 6, 'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie'},
 
 ]
 
