@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   Formik,
   Form,
@@ -33,7 +32,7 @@ const isValidUrl = (url: any) => {
 
 const yupValidate = Yup.object().shape({
   productName: Yup.string().required("Produkten måste ha ett namn"),
-  productImage: Yup.string().test("is-url-valid", "URL is not vaild", (value) => {return isValidUrl(value)}).required("Produkten måste ha en bild i URL form"),
+  productImage: Yup.string().test("is-url-valid", "Bilden måste vara en URL", (value) => {return isValidUrl(value)}).required("Produkten måste ha en bild i URL form"),
   productPrice: Yup.number().min(1, "Produkten får inte kosta mindre än 0 kr").max(9999, "Produkten får inte kosta mer än 9999 kr").required("Produkten måste ha ett pris i kronor"),
   productAbout: Yup.string().required("Produkten måste ha en beskrivning")
 })

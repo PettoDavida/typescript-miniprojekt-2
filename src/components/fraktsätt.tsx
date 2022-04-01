@@ -1,10 +1,15 @@
-import React, {useState} from 'react'
+import {useContext, useState} from 'react'
 import "../CSS/fraktsätt.css"
 import postnordLogo from '../Images/postnord-logo.jpeg'
 import dhlLogo from '../Images/dhl-logo.png'
 import instaboxLogo from '../Images/instabox-logo.png'
+import { useNavigate } from 'react-router'
+import { fraktContext } from './context'
 
 function Fraktsätt() {
+
+  const navigate = useNavigate()
+  const {frakt, setFrakt} = useContext(fraktContext)
 
     const[value, setValue] = useState(0);
     let postnordExtended = "inactive"
@@ -14,6 +19,7 @@ function Fraktsätt() {
 
     if(value === 1){
         postnordExtended = "postnordExtended"
+
       } else if (value === 2){
         postnordHemExtended = "postnordHemExtended"
       } else if (value === 3){
@@ -22,16 +28,16 @@ function Fraktsätt() {
         instaboxExtended = "instaboxExtended"
       }
 
-      console.log(value)
+      console.log(frakt)
   return (
-    <div className="mainDiv">
-        <div className="formDiv">
-            <span>Välj fraktsätt</span>            
+    <div className="mainDivFrakt">
+        <div className="formDivFrakt">
+            <span className='fraktSpan'>Välj fraktsätt</span>            
 
             <div className="postnordDiv">
-            <input name='Radio' id="postnord" type="radio" onClick={() => setValue(1)}/>
-            <label id="inputLabel" htmlFor="postnord">Postnord Ombud</label>
-            <img src={postnordLogo} alt="" />
+            <input name='Radio' id="postnord" type="radio" onClick={() => {setValue(1); setFrakt(0)}}/>
+            <label id="postnord" htmlFor="postnord">Postnord Ombud</label>
+            <img className="fraktImg" src={postnordLogo} alt="" />
             <div className={postnordExtended}>
             <div className='leveransDag'>
             <p>Fri frakt!</p>
@@ -49,9 +55,9 @@ function Fraktsätt() {
             </div>
             
             <div className="postnordHemDiv">
-            <input name='Radio' id="postnordHem" type="radio" onClick={() => setValue(2)} />
-            <label id="inputLabel" htmlFor="postnordHem">Postnord hemleverans</label>
-            <img src={postnordLogo} alt="" />
+            <input name='Radio' id="postnordHem" type="radio" onClick={() => {setValue(2); setFrakt(29)}} />
+            <label id="postnordHem" htmlFor="postnordHem">Postnord hemleverans</label>
+            <img className="fraktImg" src={postnordLogo} alt="" />
             <div className={postnordHemExtended}>
             <div className='leveransDag'>
             <p>29 kr</p>
@@ -68,9 +74,9 @@ function Fraktsätt() {
             </div>
 
             <div className="DHLDiv">
-            <input name='Radio' id="DHL" type="radio"  onClick={() => setValue(3)} />
-            <label id="inputLabel" htmlFor="DHL">DHL</label>
-            <img src={dhlLogo} alt="" />
+            <input name='Radio' id="DHL" type="radio"  onClick={() => {setValue(3); setFrakt(0)}} />
+            <label id="DHL" htmlFor="DHL">DHL</label>
+            <img className="fraktImg" src={dhlLogo} alt="" />
             <div className={DHLExtended}>
             <div className='leveransDag'>
             <p>Fri frakt!</p>
@@ -89,9 +95,9 @@ function Fraktsätt() {
             </div>
 
             <div className="instaboxDiv">
-            <input name='Radio' id="instabox" type="radio" onClick={() => setValue(4)} />
-            <label id="inputLabel" htmlFor="instabox">Instabox</label>
-            <img src={instaboxLogo} alt="" />
+            <input name='Radio' id="instabox" type="radio" onClick={() => {setValue(4); setFrakt(0)}} />
+            <label id="instabox" htmlFor="instabox">Instabox</label>
+            <img className="fraktImg" src={instaboxLogo} alt="" />
             <div className={instaboxExtended}>
             <div className='leveransDag'>
             <p>Fri frakt!</p>
@@ -110,7 +116,7 @@ function Fraktsätt() {
             </div>
 
             <div className="buttonDiv">
-                <button className='buyButton'>Slutför beställning</button>
+                <button className='buyButton' onClick={() => {navigate('betalning')}}>Slutför beställning</button>
                 </div>
             </div>
 
