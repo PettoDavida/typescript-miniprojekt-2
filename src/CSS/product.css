@@ -26,8 +26,13 @@
 
 .productCardButtons{
     display: flex;
-    flex-direction: column;
+    
 }
+
+button{
+    margin: 5px;
+}
+
 
 @media screen and (min-width: 480px) {
     .productDiv{
@@ -38,8 +43,8 @@
         width: 15rem;
         height: 15rem;
     }
-    .productCardButtons{
-        flex-direction: row;
+    .adminPageButtons{
+        display: flex;
     }
 
 }
