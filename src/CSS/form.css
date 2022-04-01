@@ -103,3 +103,35 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media (max-width: 1440px){
+    .buyButton{
+        padding:0.3rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 1024px){
+    .formDiv{
+        height:80vh;
+        width:50vw;
+    }
+
+    .buyButton{
+        padding:1rem;
+    }
+}
+
+@media (max-width: 768px){
+    .buyButton{
+        padding: 0.3rem;
+        width: 40%;
+    }
+}
+
+@media (max-width: 425px){
+    .formDiv{
+        height: 90vh;
+        width: 90vw;
+    }
+}
