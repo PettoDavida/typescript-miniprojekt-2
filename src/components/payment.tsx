@@ -46,19 +46,21 @@ function PaymentMethod() {
 
   let payment = "payment";
   let paymentText = document.getElementById("paymentText");
-  let SwishDiv = document.getElementById("SwishDiv");
-  let SwishQR = document.getElementById("SwishQR");
+  let swishDiv = "hidden";
+  let swishQR = document.getElementById("SwishQR");
   let swishNumberButton = "hidden";
   let swishNumberText = "visible";
   let swishButton = "visible";
   let priser = "hidden";
   let betalkortForm = "hidden";
+  let backButtonPayment = "backButtonPayment"
 
-  if (value === 1) {
+
+    if (value === 1) {
     payment = "hidden";
     paymentText!.innerHTML = "Swish";
     priser = "visible";
-    SwishDiv!.style.display = "flex";
+    swishDiv = "swish-payment";
   } else if (value === 2) {
     payment = "hidden";
     paymentText!.innerHTML = "Betalkort";
@@ -114,7 +116,7 @@ function PaymentMethod() {
         </div>
       </div>
 
-      <div className="swish-payment" id="SwishDiv">
+      <div className={swishDiv}>
         <img
           src={SwishQRLogo}
           alt=""
@@ -227,6 +229,7 @@ function PaymentMethod() {
           <Button variant="outlined">Betala</Button>
         </Stack>
       </div>
+      <button className={backButtonPayment} onClick={() => setValue(0)}>Gå tillbaka</button>
     </div>
   );
 }
