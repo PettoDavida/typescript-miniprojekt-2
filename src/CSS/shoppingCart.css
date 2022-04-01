@@ -1,0 +1,18 @@
+.shoppingCartDrawer{
+    width: 100%;
+}
+
+
+@media screen and (min-width: 480px) {
+    .shoppingCartDrawer{
+
+    }
+    
+}
+
+@media screen and (min-width: 980px) {
+    .shoppingCartDrawer{
+
+    }
+    
+}

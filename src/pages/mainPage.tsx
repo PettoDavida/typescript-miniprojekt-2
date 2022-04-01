@@ -1,11 +1,14 @@
-import "../CSS/MainPage"
+import "../CSS/mainPage.css"
 
 function MainPage(){
 
     
-    return {
-
-    }
+    return (
+        <main>
+            <h2>Welcome to our page!!</h2>
+        </main>
+    )
+    
 }
 
 export default MainPage

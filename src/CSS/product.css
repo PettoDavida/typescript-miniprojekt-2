@@ -1,0 +1,58 @@
+.productsDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+}
+
+.productDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 20rem;
+}
+
+.productImg{
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;  
+}
+
+.nameAndPrice{
+    display: flex;
+    justify-content: space-between;
+}
+
+.productCardButtons{
+    display: flex;
+    
+}
+
+button{
+    margin: 5px;
+}
+
+
+@media screen and (min-width: 480px) {
+    .productDiv{
+        width: 50%;
+        height: 40vh;
+    }
+    .productImg{
+        width: 15rem;
+        height: 15rem;
+    }
+
+}
+
+@media screen and (min-width: 980px) {
+    .productDiv{
+        width: 33%;
+        height: 50vh;
+    }
+    .productImg{
+        width: 20rem;
+        height: 20rem;
+    }
+}
