@@ -2,6 +2,7 @@ import "../CSS/form.css"
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router";
+import { Button } from "@mui/material";
 
 
 function Form() {
@@ -40,7 +41,6 @@ function Form() {
 
             <div className="inputDivForm">
             <form onSubmit={formik.handleSubmit}>
-              {formik.touched.firstName && formik.errors.firstName ? <div className="errorMessage">{formik.errors.firstName}</div>: null}
               <input 
               type="text" 
               id="firstName"
@@ -52,9 +52,7 @@ function Form() {
               value={formik.values.firstName}
               />
               <label id="inputLabel" htmlFor="firstName">Förnamn</label>
-
-
-              {formik.touched.lastName && formik.errors.lastName ? <div className="errorMessage">{formik.errors.lastName}</div>: null}
+              
               <input 
               type="text" 
               id="lastName"
@@ -68,7 +66,6 @@ function Form() {
               <label id="inputLabel" htmlFor="lastName">Efternamn</label>
 
 
-              {formik.touched.email && formik.errors.email ? <div className="errorMessage">{formik.errors.email}</div>: null}
               <input 
               className='textInput'
               type="email" 
@@ -82,7 +79,6 @@ function Form() {
               <label id="inputLabel" htmlFor="email">Email</label>
 
 
-              {formik.touched.phoneNumber && formik.errors.phoneNumber ? <div className="errorMessage">{formik.errors.phoneNumber}</div>: null}
               <input 
               type="text" 
               id="phoneNumber"
@@ -96,7 +92,6 @@ function Form() {
               <label id="inputLabel" htmlFor="phoneNumber">Telefonnummer</label>
 
 
-              {formik.touched.streetAddress && formik.errors.streetAddress ? <div className="errorMessage">{formik.errors.streetAddress}</div>: null}
               <input 
               type="text" 
               id="streetAddress"
@@ -110,9 +105,7 @@ function Form() {
               <label id="inputLabel" htmlFor="adress">Adress</label>
 
 
-            <div className="buttonDiv">
-                <button type='submit' className='buyButton'>Slutför beställning</button>
-                </div>
+            <Button sx={{ml: -5}} variant="contained" type="submit">Välj Fraktsätt</Button>
             </form>
             </div>
             </div>
