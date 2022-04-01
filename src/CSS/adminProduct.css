@@ -1,0 +1,16 @@
+.adminPageButtons{
+    display: flex;
+}
+
+.adminPageButtons > button{
+    margin-left: 5px;
+}
+
+@media screen and (min-width: 480px) {
+
+
+}
+
+@media screen and (min-width: 980px) {
+
+}

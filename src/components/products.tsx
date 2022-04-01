@@ -1,10 +1,11 @@
 
 export interface Clothing{
-    id: number;
+    id: number,
     name: string,
     image: string,
     price: number,
     type: string,
+    about: string
 
 }
 
@@ -18,12 +19,12 @@ const redHoodieURL = 'https://cdn2.bigcommerce.com/n-biq04i/lk0gwzb/products/161
 const orangeHoodieURL= 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/besthoodiefenty-1616603464.jpg?crop=1xw:0.999288256227758xh;center,top&resize=480:*'
 
 export const clothes: Clothing[] = [
-    {'id': 0, 'name': "white shirt",'image': whiteShirtURL,'price': 200,'type': 'shirt'},
-    {'id': 1, 'name': "black shirt",'image': blackShirtURL,'price': 250,'type': 'shirt'},
-    {'id': 3, 'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants'},
-    {'id': 4, 'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants'},
-    {'id': 5, 'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie'},
-    {'id': 6, 'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie'},
+    {'id': 0, 'name': "white shirt",'image': whiteShirtURL,'price': 200,'type': 'shirt', 'about': "En t-shirt i mjuk bomullstrikå med klassisk passform. T-shirten har rund halsringning med ribbad mudd. Rakt skuren nederkant.", },
+    {'id': 1, 'name': "black shirt",'image': blackShirtURL,'price': 250,'type': 'shirt', 'about': "En t-shirt i mjuk bomullstrikå med klassisk passform. T-shirten har rund halsringning med ribbad mudd. Rakt skuren nederkant.", },
+    {'id': 3, 'name': "beige pants",'image': beigePantsURL,'price': 500,'type': 'pants', 'about': "Ett par chinos i stretchig twill av bomull. De har sidfickor och stolpfickor bak med knapp. Gylf med dragkedja. Slim Fit _ en passform som är smal över lår, knä och ankel. Detta skapar en figursydd silhuett.", },
+    {'id': 4, 'name': "black pants",'image': blackPantsURL,'price': 600,'type': 'pants', 'about': "Ett par chinos i stretchig twill av bomull. De har sidfickor och stolpfickor bak med knapp. Gylf med dragkedja. Slim Fit _ en passform som är smal över lår, knä och ankel. Detta skapar en figursydd silhuett.", },
+    {'id': 5, 'name': "red hoodie",'image': redHoodieURL,'price': 800,'type': 'hoodie', 'about': "En långärmad tröja i bomullsblandad sweatshirtkvalitet med avslappnad passform. Tröjan har trikåfodrad huva med dragsko. Bred, ribbad mudd vid ärmslut och i nederkant. Känguruficka. Mjuk, borstad insida.", },
+    {'id': 6, 'name': "orange hoodie",'image': orangeHoodieURL,'price': 750,'type': 'hoodie', 'about': "En långärmad tröja i bomullsblandad sweatshirtkvalitet med avslappnad passform. Tröjan har trikåfodrad huva med dragsko. Bred, ribbad mudd vid ärmslut och i nederkant. Känguruficka. Mjuk, borstad insida.", },
 
 ]
 

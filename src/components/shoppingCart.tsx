@@ -2,6 +2,8 @@ import { Badge, Button, Drawer, Typography } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import PaymentIcon from '@mui/icons-material/Payment';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { cartContext, cartItem } from "./context"
 import "../CSS/shoppingCart.css"
 
@@ -23,7 +25,7 @@ function ShoppingCart(){
         }
         setItemsInCart(totalAmount)
         setTotalPriceOfItemsInCart(totalPrice)
-        console.log(cart);
+        // console.log(cart);
     }, [cart])
     
     function ChangeAmount(id: number, amount: number) {
@@ -46,22 +48,24 @@ function ShoppingCart(){
                 </Badge>
             </Button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-                <Button>
+                <Button size="large" >
                     <PaymentIcon color="action"/>
                 </Button>
-                {totalPriceOfItemsInCart} kr
+                Total Price: {totalPriceOfItemsInCart} kr
                 {cart.map((_object: cartItem, _i: number) => {
                     return(
                         <div className="cartItemDiv" key={_i}>
-                            <img className="cartImg" src={_object.clothing.image} alt="" />
                             <Typography variant="h6">
                                 {_object.clothing.name}
-                                
                             </Typography>
                             {_object.clothing.price * _object.amount} kr
-                            <Button onClick={()=>{ChangeAmount(_object.clothing.id, -1)}}>-1</Button>
+                            <Button onClick={()=>{ChangeAmount(_object.clothing.id, -1)}}>
+                                <RemoveIcon/>
+                            </Button>
                             {_object.amount}
-                            <Button onClick={() => {ChangeAmount(_object.clothing.id, +1)}}>+1</Button>
+                            <Button onClick={() => {ChangeAmount(_object.clothing.id, +1)}}>
+                                <AddIcon/>
+                            </Button>
                         </div>
                     )
                 })}

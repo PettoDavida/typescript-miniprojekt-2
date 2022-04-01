@@ -30,12 +30,9 @@ function AdminPage(){
                         Create new product
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Subscribe</DialogTitle>
+                        <DialogTitle>Skapa Ny Produkt</DialogTitle>
                         <DialogContent>
-                          <DialogContentText>
-                            
-                          </DialogContentText>
-                            <NewProduct/>
+                            <NewProduct onCloseModal={handleClose}/>
                         </DialogContent>
                         <DialogActions>
                           <Button onClick={handleClose}>Close</Button>
@@ -45,7 +42,7 @@ function AdminPage(){
         <div className="productsDiv">
             {products.products.map((_object: Clothing, _i: number) => {
                 return(
-                    <AdminProductCard id={_object.id} name={_object.name} image={_object.image} price={_object.price} type={_object.type} key={_i}/>
+                    <AdminProductCard id={_object.id} name={_object.name} image={_object.image} price={_object.price} type={_object.type} about={_object.about} key={_i}/>
                 )
                 })}
                 
@@ -53,5 +50,5 @@ function AdminPage(){
         </div>
     )
 }
-
+     
 export default AdminPage
