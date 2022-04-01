@@ -22,6 +22,8 @@ npm start
 
 ### Länkar till dokumentation
 
+* [Github Repo](https://github.com/PettoDavida/typescript-miniprojekt-2)
+
 * [Material UI(MUI)](https://mui.com/getting-started/installation/)
 
 * [Formik](https://formik.org/docs/overview)
