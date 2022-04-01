@@ -1,11 +1,19 @@
 import ReactDOM from 'react-dom';
 import './index.css';
+
+import App from './App';
+import Fraktsätt from './components/fraktsätt';
+
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
 ReactDOM.render(
-    <App/>
-,
+
+  <React.StrictMode>
+    <Fraktsätt/>
+    <App />
+  </React.StrictMode>,
+
   document.getElementById('root')
 
 );

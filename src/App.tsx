@@ -15,8 +15,9 @@ import PaymentMethod from "./components/payment";
 
 function App() {
   return (
-    <PaymentMethod />
-    /*         <BrowserRouter>
+
+   /* <PaymentMethod />*/
+             <BrowserRouter>
           <Provider>
             <Header/>
               <Routes>
@@ -28,7 +29,8 @@ function App() {
                 <Route path='*' element={<NotFoundPage />} />
               </Routes>
           </Provider>
-        </BrowserRouter> */
+        </BrowserRouter> 
+
   );
 }
 
