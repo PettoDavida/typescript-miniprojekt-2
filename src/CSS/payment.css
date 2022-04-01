@@ -1,14 +1,11 @@
-.payment-div {
-  color: rgb(24, 24, 24);
-  position: absolute;
-  width: 35%;
-  height: 70%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.payment-All{
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  align-items: center;
+}
+
+.payment-div {
+  color: rgb(24, 24, 24);
   border-radius: 0.5rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
@@ -18,21 +15,8 @@
 .choose-payment {
   display: flex;
   justify-content: center;
-  top: 0;
-  position: absolute;
-  width: 100%;
-  font-size: 1.5rem;
 }
 
-.payment-methods {
-  position: absolute;
-  bottom: 0;
-  height: 80%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
 .swish-logo {
   max-height: 50%;
@@ -71,8 +55,7 @@
 }
 
 .swish-qr {
-  max-height: 30%;
-  margin-top: 6rem;
+  height: 10rem;
 }
 
 #TextboxSwish {
@@ -115,12 +98,6 @@
   height: auto;
   margin-bottom: 2rem;
   margin-left: 1rem;
-  /* border: 2px solid black; */
-  /* position: absolute; */
-}
-
-#priser > hr {
-  margin-left: -1rem !important;
 }
 
 #priser button {
@@ -132,43 +109,21 @@
   display: flex;
   z-index: 1000;
 }
-form{
-  width: 100%;
-  flex-wrap: wrap;
-  margin-left:1rem;
-}
+
 
 .errorMessage{
   color:red;
-  position: absolute;
-  left:1rem;
-
 
 }
 
-.backButtonPayment{
-  width:20%;
-  top:0;
-  left:0;
-  position: absolute;
-  border-radius: 5%;
-  border: none;
-
+.swish-logo {
+  height: 5rem;
 }
-
-@media screen and (max-width: 1130px) {
-  .payment {
-    flex-direction: column;
-  }
-  .paypal-logo {
-    min-height: 12%;
-  }
-  .swish-logo {
-    min-height: 40%;
-  }
-  .betalkort-logo {
-    min-height: 30%;
-  }
+.betalkort-logo {
+  height: 5rem;
+}
+.paypal-logo {
+  height: 5rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -184,5 +139,20 @@ form{
   .payment p {
     font-size: 1rem;
     font-weight: bold;
+    margin-left: 1rem;
+
   }
+  .payment-div {
+    width: 70%;
+  }
+  .swish-logo {
+    height: 3rem;
+  }
+  .betalkort-logo {
+    height: 3rem;
+  }
+  .paypal-logo {
+    height: 2rem;
+  }
+
 }

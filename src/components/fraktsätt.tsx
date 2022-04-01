@@ -5,6 +5,7 @@ import dhlLogo from '../Images/dhl-logo.png'
 import instaboxLogo from '../Images/instabox-logo.png'
 import { useNavigate } from 'react-router'
 import { fraktContext } from './context'
+import { Button } from '@mui/material'
 
 function Fraktsätt() {
 
@@ -115,9 +116,7 @@ function Fraktsätt() {
             </div>
             </div>
 
-            <div className="buttonDiv">
-                <button className='buyButton' onClick={() => {navigate('betalning')}}>Slutför beställning</button>
-                </div>
+            <Button variant='contained' onClick={() => {navigate('betalning')}}>Välj Betalsätt</Button>
             </div>
 
             </div>

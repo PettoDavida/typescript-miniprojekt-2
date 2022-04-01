@@ -11,8 +11,6 @@
     font-weight: 300;
     font-size: larger;
     text-align: center;
-    position: absolute;
-    top:1.5rem;
 }
 
 .mainDivFrakt, .buttonDiv{
@@ -37,7 +35,7 @@
     flex-direction: column;
     align-items: center;
     position: absolute;
-    height: 70vh;
+    height: 80%;
     width: 30vw;
     box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
                 0 2px 4px rgba(0,0,0,0.07), 
@@ -115,7 +113,6 @@
 
 @media (max-width: 1440px){
     .formDivFrakt{
-        height:90vh;
         width:40vw;
     }
 }
@@ -128,7 +125,6 @@
 
 @media (max-width: 425px){
     .formDivFrakt{
-        height: 90vh;
         width:90vw;
     }
 }
