@@ -4,11 +4,18 @@ import { cartContext, productsContext } from "../components/context";
 import "../CSS/productPage.css"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
+import { SetLocalProducts, GetLocalProducts } from "../components/localStorage";
 
 function ProductPage(){
 
   const products = useContext(productsContext)
   const {cart, setCart} = useContext(cartContext)
+
+  if (localStorage.getItem('products') === null) {
+      SetLocalProducts()
+  } else {
+      GetLocalProducts()
+  } 
 
     let getURL = window.location.href
 
@@ -30,7 +37,7 @@ function ProductPage(){
                       {products.products[index].about}
                     </Typography>
                     {cart.find(element=>element.clothing.id === products.products[index].id) ? (
-                    <div>
+                    <div className="productCardButtons">
                       <Button variant="outlined" onClick={() => {cart[cart.findIndex(element=>element.clothing.id === products.products[index].id)].amount += 1; setCart([...cart])}}>
                         <AddShoppingCartIcon/>
                       </Button>
