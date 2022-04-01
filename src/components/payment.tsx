@@ -9,11 +9,11 @@ import MasterCardLogo from '../Images/Mastercard.png'
 import PayPalLogo from '../Images/Paypal.png'
 import SwishQRLogo from '../Images/SwishQR.png'
 import { cartContext, fraktContext } from "./context";
-
-
+import { useNavigate } from "react-router-dom"
 function PaymentMethod() {
   const [value, setValue] = useState(0);
   const frakt = useContext(fraktContext)
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
     fullName: Yup.string().required("Namn är obligatoriskt"),
@@ -44,6 +44,10 @@ function PaymentMethod() {
       console.log(JSON.stringify(data, null, 2));
     },
   });
+
+  const handleClick = () => {
+    navigate("orderconfirmation")
+  }
 
   let payment = "payment";
   let paymentText = document.getElementById("paymentText");
@@ -224,7 +228,7 @@ function PaymentMethod() {
         <hr />
         <p>Totalt:{totalPriceOfItemsInCart + frakt.frakt}</p>
         <Stack direction="row" spacing={2}>
-          <Button variant="outlined">Betala</Button>
+          <Button onClick={handleClick} variant="outlined">Betala</Button>
         </Stack>
       </div>
     </div>

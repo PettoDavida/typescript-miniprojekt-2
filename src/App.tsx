@@ -11,6 +11,7 @@ import ProductsPage from "./pages/productsPage";
 import Form from "./components/form";
 import Fraktsätt from "./components/fraktsätt";
 import PaymentMethod from "./components/payment";
+import OrderConfirmation from "./components/orderconfirmation";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
                 <Route path='dina-uppgifter' element={<Form/>}/>
                 <Route path='dina-uppgifter/frakt' element={<Fraktsätt/>}/>
                 <Route path='dina-uppgifter/frakt/betalning' element={<PaymentMethod/>}/>
+                <Route path='dina-uppgifter/frakt/betalning/orderconfirmation' element={<OrderConfirmation/>}/>
 
                   
                 <Route path='*' element={<NotFoundPage />} />
