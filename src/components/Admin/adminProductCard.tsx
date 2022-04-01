@@ -26,7 +26,7 @@ function AdminProductCard(prod: Clothing){
             <div className="adminPageButtons">
             <div className="editProduct">
                     <Button variant="outlined" onClick={handleClickOpen}>
-                        Edit Product
+                        Edit
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
                         <DialogTitle>Ändra produkt</DialogTitle>
@@ -43,7 +43,7 @@ function AdminProductCard(prod: Clothing){
               color='error'
               onClick={() => setProducts(products.filter((c) => c.id !== prod.id))}
             >
-              Remove from Products
+              Remove
             </Button>
             </div>
         </div>
