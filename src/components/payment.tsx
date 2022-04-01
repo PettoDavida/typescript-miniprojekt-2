@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../CSS/payment.css";
 import Button from "@mui/material/Button";
 import { Stack } from "@mui/material";
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
+import SwishLogo from '../Images/Swish.png'
+import MasterCardLogo from '../Images/Mastercard.png'
+import PayPalLogo from '../Images/Paypal.png'
+import SwishQRLogo from '../Images/SwishQR.png'
+import { cartContext } from "./context";
+
 
 function PaymentMethod() {
   const [value, setValue] = useState(0);
@@ -70,6 +76,21 @@ function PaymentMethod() {
     priser = "visible";
   }
 
+
+  const {cart} = useContext(cartContext)
+
+    const [totalPriceOfItemsInCart, setTotalPriceOfItemsInCart]= useState(Number)
+
+    useEffect(() => {
+        let totalPrice = 0
+        for (let i = 0; i < cart.length; i++) {
+            const element = cart[i]
+            totalPrice += element.clothing.price * element.amount
+        }
+        setTotalPriceOfItemsInCart(totalPrice)
+        // console.log(cart);
+    }, [cart])
+
   return (
     <div className="payment-div">
       <div className="choose-payment">
@@ -79,23 +100,23 @@ function PaymentMethod() {
         <div className={payment} id="payment" onClick={() => setValue(1)}>
           <p>Swish</p>
 
-          <img src="images/Swish.png" className="swish-logo" alt="" />
+          <img src={SwishLogo} className="swish-logo" alt="" />
         </div>
         <div className={payment} id="payment" onClick={() => setValue(2)}>
           <p>Betalkort</p>
 
-          <img src="images/Mastercard.png" className="betalkort-logo" alt="" />
+          <img src={MasterCardLogo} className="betalkort-logo" alt="" />
         </div>
         <div className={payment} id="payment" onClick={() => setValue(3)}>
           <p>Paypal</p>
 
-          <img src="images/Paypal.png" className="paypal-logo" alt="" />
+          <img src={PayPalLogo} className="paypal-logo" alt="" />
         </div>
       </div>
 
       <div className="swish-payment" id="SwishDiv">
         <img
-          src="images/SwishQR.png"
+          src={SwishQRLogo}
           alt=""
           className="swish-qr"
           id="SwishQR"
@@ -197,11 +218,11 @@ function PaymentMethod() {
         </form>
       </div>
       <div className={priser} id="priser">
-        <p>Produkt pris:</p>
-        <p>Moms:</p>
+        <p>Produkt pris:{totalPriceOfItemsInCart}</p>
+        <p>Moms:{totalPriceOfItemsInCart/4}</p>
         <p>Frakt:</p>
         <hr />
-        <p>Totalt:</p>
+        <p>Totalt:{totalPriceOfItemsInCart}</p>
         <Stack direction="row" spacing={2}>
           <Button variant="outlined">Betala</Button>
         </Stack>

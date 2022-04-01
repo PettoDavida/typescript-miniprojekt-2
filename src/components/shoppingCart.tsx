@@ -6,8 +6,11 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { cartContext, cartItem } from "./context"
 import "../CSS/shoppingCart.css"
+import { useNavigate } from "react-router";
 
 function ShoppingCart(){
+
+    const navigate = useNavigate()
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
@@ -48,7 +51,7 @@ function ShoppingCart(){
                 </Badge>
             </Button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-                <Button size="large" >
+                <Button size="large" onClick={() => {navigate('dina-uppgifter')}}>
                     <PaymentIcon color="action"/>
                 </Button>
                 Total Price: {totalPriceOfItemsInCart} kr

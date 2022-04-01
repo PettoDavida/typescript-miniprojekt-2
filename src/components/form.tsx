@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
 import "../CSS/form.css"
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import { useNavigate } from "react-router";
 
 
 function Form() {
+
+  const navigate = useNavigate()
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("Förnamn är obligatoriskt"),
@@ -33,7 +35,7 @@ function Form() {
   return (
     <div className="mainDiv">
         <div className="formDiv">
-            <span>Ange kontaktuppgifter för att slutföra beställningen</span>
+            <span className="formTitle">Ange kontaktuppgifter för att slutföra beställningen</span>
 
             <div className="inputDiv">
             <form onSubmit={formik.handleSubmit}>
@@ -108,7 +110,7 @@ function Form() {
 
 
             <div className="buttonDiv">
-                <button  type='submit' className='buyButton'>Slutför beställning</button>
+                <button type='submit' className='buyButton' onClick={() => {navigate('frakt')}}>Slutför beställning</button>
                 </div>
             </form>
             </div>
