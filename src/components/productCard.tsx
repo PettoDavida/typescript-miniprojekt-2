@@ -1,5 +1,5 @@
-import { Button, Typography } from "@mui/material"
-import { useContext } from "react"
+import { Alert, Button, Typography } from "@mui/material"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import "../CSS/product.css"
 import { cartContext } from "./context"
@@ -9,6 +9,14 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 
 function ProductCard(prod: Clothing){
     const {cart, setCart} = useContext(cartContext)
+
+    const [successOnAddProduct, setSuccessOnAddProduct] = useState(false)
+
+    const onAddNewProduct = () => {
+      setCart([...cart, {clothing: prod, amount: 1}])
+      setSuccessOnAddProduct(true)
+      const id = setInterval(() => {setSuccessOnAddProduct(false); clearInterval(id)},500)
+    }
 
     return(
         <div className="productDiv">
@@ -30,10 +38,11 @@ function ProductCard(prod: Clothing){
                 </Button>
               </div>
             ) : (
-              <Button className="productCardButtonAdd" variant="outlined" onClick={() => {setCart([...cart, {clothing: prod, amount: 1}])}}>
+              <Button className="productCardButtonAdd" variant="outlined" onClick={() => {onAddNewProduct()}}>
                 <AddShoppingCartIcon/>
               </Button>
             )}
+              <Alert style={{display: successOnAddProduct ? 'flex' : 'none'}} severity="success">Item Added to cart</Alert>  
         </div>
     )
 
