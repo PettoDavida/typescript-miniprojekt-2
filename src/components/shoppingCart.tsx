@@ -50,7 +50,7 @@ function ShoppingCart(){
                 </Badge>
             </Button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-                <Button disabled={cart === undefined || cart.length === 0} size="large" onClick={() => {navigate('dina-uppgifter')}}>
+                <Button disabled={cart === undefined || cart.length === 0} size="large" onClick={() => {navigate('dina-uppgifter'); setIsDrawerOpen(false)}}>
                     <PaymentIcon color="action"/>
                 </Button>
                 Total Price: {totalPriceOfItemsInCart} kr
