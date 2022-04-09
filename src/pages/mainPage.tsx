@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material"
 import "../CSS/mainPage.css"
 
 function MainPage(){
@@ -5,7 +6,7 @@ function MainPage(){
     
     return (
         <main>
-            <h2>Welcome to our page!!</h2>
+            <Typography variant="h4">Welcome to our page!!</Typography>
         </main>
     )
     

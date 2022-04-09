@@ -35,3 +35,5 @@ npm start
 * [React](https://reactjs.org/docs/getting-started.html)
 
 * [TypeScript](https://www.typescriptlang.org/docs/)
+
+* [Netlify](https://peaceful-chebakia-2b2e42.netlify.app/)

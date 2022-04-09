@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { productsContext } from "./context"
-import { clothes } from "./products"
+import { clothes } from "../products"
 
 export function SetLocalProducts() {
     const {setProducts} = useContext(productsContext)

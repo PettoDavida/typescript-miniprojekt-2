@@ -5,7 +5,6 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { cartContext, cartItem } from "./context"
-import "../CSS/shoppingCart.css"
 import { useNavigate } from "react-router";
 
 function ShoppingCart(){
@@ -44,14 +43,14 @@ function ShoppingCart(){
     
 
     return(
-        <div>
+        <Typography>
             <Button onClick={() => setIsDrawerOpen(true)}>
                 <Badge badgeContent={itemsInCart} color="primary">
                     <ShoppingCartIcon color="action" />
                 </Badge>
             </Button>
             <Drawer anchor="right" open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
-                <Button size="large" onClick={() => {navigate('dina-uppgifter')}}>
+                <Button disabled={cart === undefined || cart.length === 0} size="large" onClick={() => {navigate('dina-uppgifter')}}>
                     <PaymentIcon color="action"/>
                 </Button>
                 Total Price: {totalPriceOfItemsInCart} kr
@@ -73,7 +72,8 @@ function ShoppingCart(){
                     )
                 })}
             </Drawer>
-        </div>
+        </Typography>
+
         
 
 

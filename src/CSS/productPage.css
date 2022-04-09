@@ -1,38 +1,32 @@
 .productPageTitle{
     text-transform: capitalize;
-    font-size: 2rem;
 }
 .productPageImg{
     height: 10rem;
     width: 10rem;
     object-fit: contain;  
 }
-.productPageAbout{
-    width: 16rem;
-    font-size: 1rem;
+
+.productPageMain{
+    width: 100%;
 }
-.productPageImgAndAbout{
-    display: flex;
-}
-.productPageImgAndButtons{
-    display: flex;
-    flex-direction: column;
+
+@media screen and (min-width: 470px) {
+    .productPageImg{
+        height: 15rem;
+        width: 15rem; 
+    }
+    .productPageMain{
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 980px) {
-
-    .productPageTitle{
-        font-size: 3rem;
-    }
     .productPageImg{
         height: 30rem;
         width: 30rem; 
     }
-    .productPageAbout{
-        font-size: 1.5rem;  
+    .productPageMain{
+        width: 50%;
     }
-    .productPageImgAndButtons{
-        display: unset;
-    }
-
 }

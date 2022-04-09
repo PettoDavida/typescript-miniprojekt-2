@@ -1,10 +1,10 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material"
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material"
 import { useContext, useState } from "react"
 import AdminProductCard from "../../components/Admin/adminProductCard"
 import { NewProduct } from "../../components/Admin/newProductForm"
 import { productsContext } from "../../components/context"
 import { SetLocalProducts, GetLocalProducts } from "../../components/localStorage"
-import { Clothing } from "../../components/products"
+import { Clothing } from "../../products"
 import '../../CSS/adminPage.css'
 
 function AdminPage(){

@@ -1,82 +1,12 @@
-.formTitle{
-    font-weight: 300;
-    font-size: larger;
-    text-align: center;
-}
-
-.mainDiv, .formDiv{
+.ContactInfoDiv{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 3rem;
 }
 
-.mainDiv{
-    min-height: 90vh;
-
-}
-
-.formDiv{
-    height:80vh;
-    width:50vw;
-    flex-direction: column;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
-                0 2px 4px rgba(0,0,0,0.07), 
-                0 4px 8px rgba(0,0,0,0.07), 
-                0 8px 16px rgba(0,0,0,0.07),
-                0 16px 32px rgba(0,0,0,0.07), 
-                0 32px 64px rgba(0,0,0,0.07);
-}
-
-.inputDivForm{
-    width: 10%;
-}
-
-.textInput{
-    border: 0;
-    z-index: 1;
-    background-color: transparent;
-    border-bottom: 2px solid rgb(204, 204, 204);
-    font: inherit;
-    padding: 0.25rem 0;
-    margin-bottom: 2.5rem;
-    margin-left:-4.5rem;
-}
-
-.textInput:focus, .textInput:valid{
-    outline: 0;
-    border-bottom-color: #D15814;
-}
-
-#inputLabel{
-    transform: translate(-4.5rem, -5rem);
-    position: absolute;
-    color: #8597a3;
-    transition: .25s ease;
-}
-.textInput:focus + #inputLabel{
-    color: #D15814;
-	transform: translate(-4.5rem, -7rem);
-} 
-
-.textInput:valid + #inputLabel{
-    color: #D15814;
-	transform: translate(-4.5rem, -7rem);
-}
-
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-@media (max-width: 890px){
-    .formDiv{
-        width: 60%;
-    }
-}
-@media (max-width: 420px){
-    .formDiv{
-        width: 80%;
+@media (max-width: 520px){
+.ContactInfoDiv{
+    margin-top: 0rem;
     }
 }
