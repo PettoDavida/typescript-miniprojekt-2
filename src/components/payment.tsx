@@ -98,6 +98,7 @@ function PaymentMethod() {
           .max(3, "CVC är inte giltigt"),
       })
 
+
       const initialValues: CardInfo = {
         cardHolder: '',
         cardNumber: '',
@@ -201,6 +202,7 @@ function PaymentMethod() {
         email: Yup.string().required("Email är obligatoriskt").email("Formatet på email är fel"),
       })
 
+
       const initialValue = {
         email: contactInfo.email,
       }
@@ -250,6 +252,7 @@ function PaymentMethod() {
             <BetalSätt sätt={Betalsätt.PayPal} icon={PayPalLogo} />
             <PayPalInfo sätt={Betalsätt.PayPal}/>
       </Card>
+
     </div>
   );
 }

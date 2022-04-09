@@ -7,8 +7,10 @@
   width: 8rem;
 }
 
+
 .SwishDiv{
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
