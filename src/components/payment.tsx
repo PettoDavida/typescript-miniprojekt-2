@@ -89,9 +89,8 @@ function PaymentMethod() {
           .min(16, "Kortnummret är inte giltigt")
           .max(16, "Kortnummret är inte giltigt"),
         expiryDate: Yup.string()
-          .matches(/^[0-9]+\/[0-9]+/, "Test")
-          .min(5)
-          .max(7),
+          .min(5, "Giltigt till ska vara i xx/xxxx eller xx/xx")
+          .max(7, "Giltigt till ska vara i xx/xxxx eller xx/xx"),
         cvc: Yup.string()
           .required("CVC är obligatoriskt")
           .min(3, "CVC är inte giltigt")
