@@ -121,7 +121,7 @@ function PaymentMethod() {
                 component={TextField}
                 name="cardHolder"
                 type="text"
-                label="Förnamn"
+                label="Fullt namn"
                 margin="dense"
                 />
                 <br />

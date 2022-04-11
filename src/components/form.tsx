@@ -2,7 +2,7 @@ import "../CSS/form.css"
 import { Field, Form, Formik } from "formik";
 import * as Yup from 'yup';
 import { useNavigate } from "react-router";
-import { Button, Card } from "@mui/material";
+import { Button, Card, Typography } from "@mui/material";
 import { TextField } from "formik-mui";
 import { contactInfoContext } from "./context";
 import { useContext } from "react";
@@ -58,6 +58,7 @@ function ContactForm() {
   return (
     <div className="ContactInfoDiv">
       <Card sx={{display: 'inline-block', padding: '2rem'}} raised={true}>
+        <Typography variant="h5">Kontaktuppgifter</Typography>
         <Formik
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
