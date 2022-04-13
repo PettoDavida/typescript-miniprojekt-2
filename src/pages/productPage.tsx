@@ -1,4 +1,4 @@
-import { Alert, Button } from "@mui/material";
+import { Alert, Button, ButtonGroup, Card, Typography } from "@mui/material";
 import { useContext, useState } from "react";
 import { cartContext, productsContext } from "../components/context";
 import "../CSS/productPage.css"
@@ -28,49 +28,50 @@ function ProductPage(){
     for (let index = 0; index < products.products.length; index++) {
         
         if (itemFromURL === products.products[index].id.toString()) {
-          // console.log(products.products[index].about)
-
           const onAddNewProduct = () => {
             setCart([...cart, {clothing: products.products[index], amount: 1}])
             setSuccessOnAddProduct(true)
-            const id = setInterval(() => {setSuccessOnAddProduct(false); clearInterval(id)},500)
+            const id = setInterval(() => {setSuccessOnAddProduct(false); clearInterval(id)},1000)
           }
-            return(
-                <div>
-                    <span className="productPageTitle">
-                      {products.products[index].name}
-                    </span>
-                    <div className="productPageImgAndAbout">
-                      <div className="productPageImgAndButtons">
-                      <img className="productPageImg" src={products.products[index].image} alt="" />
-                      {cart.find(element=>element.clothing.id === products.products[index].id) ? (
-                    <div className="productCardButtons productPageButtons">
-                      <Button variant="outlined" onClick={() => {cart[cart.findIndex(element=>element.clothing.id === products.products[index].id)].amount += 1; setCart([...cart])}}>
-                        <AddShoppingCartIcon/>
-                      </Button>
-                            
-                      <Button variant="outlined" color="warning" onClick={() => setCart(cart.filter((c) => c.clothing.id !== products.products[index].id))}>
-                        <RemoveShoppingCartIcon/>
-                      </Button>
-                    </div>
-                    ) : (
-                      <div>
-                      <Button className="productPageButtons" variant="outlined" onClick={() => {onAddNewProduct()}}>
-                        <AddShoppingCartIcon/>
-                      </Button>
-                      </div>
-                    )}
-                    </div>
-                    <span className="productPageAbout">
-                      {products.products[index].about}
-                    </span>
-                    </div>
-                    
-                  <Alert style={{display: successOnAddProduct ? 'flex' : 'none'}} severity="success">Item Added to cart</Alert>  
-                </div>
-            )
-        }
-        
+          return(
+          <div className="ContactInfoDiv">
+
+            <Card className="productPageMain" sx={{display: 'inline-block', padding:'1rem' ,margin: '1rem'}} raised={true}>
+              <Typography className="productPageTitle" variant="h3">
+                {products.products[index].name}
+              </Typography>
+              
+              <img className="productPageImg" src={products.products[index].image} alt={products.products[index].image + " bild"} />
+              
+              <Typography variant="h6">
+                {products.products[index].about}
+              </Typography>
+              <br />
+              <Typography variant="h6">
+                {products.products[index].price}Kr
+              </Typography>
+
+              {cart.find(element=>element.clothing.id === products.products[index].id) ? (
+                <ButtonGroup>
+                  <Button className="productCardButtonAdd" variant="outlined" onClick={() => {cart[cart.findIndex(element=>element.clothing.id === products.products[index].id)].amount += 1; setCart([...cart])}}>
+                    <AddShoppingCartIcon/>
+                  </Button>
+                  <Button className="productCardButtonRemove" color="warning" variant="outlined" onClick={() => setCart(cart.filter((c) => c.clothing.id !== products.products[index].id))}>
+                    <RemoveShoppingCartIcon/>
+                  </Button>
+                </ButtonGroup>
+              ) : (
+                <Button className="productCardButtonAdd" variant="outlined" onClick={() => {onAddNewProduct()}}>
+                  <AddShoppingCartIcon/>
+                </Button>
+              )}
+
+            <Alert style={{display: successOnAddProduct ? 'flex' : 'none', position: 'absolute', bottom: '0', left: '0'}} variant="filled" severity="success">Item Added to cart</Alert>  
+          
+            </Card>
+          </div>
+        )
+      }
     }
     
     return (

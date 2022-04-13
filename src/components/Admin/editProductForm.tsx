@@ -4,11 +4,13 @@ import {
   Field,
 } from 'formik';
 import * as Yup from "yup";
-import { Button } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
 import { productsContext } from '../context';
 import { useContext } from 'react';
-import { Clothing } from '../products';
+import { Clothing } from '../../products';
 import "../../CSS/newProductForm.css"
+import { Select, TextField } from 'formik-mui';
+
 
 
 interface MyFormValues {
@@ -72,35 +74,56 @@ export function EditProduct(props: any) {
         }}
         validationSchema={yupValidate}
       >
-          {({ errors, touched }) => (
-        <Form>
-          <label htmlFor="productName">Product Name</label>
-          <Field className="newProductInput" id="productName" name="productName" placeholder="Product Name" />
-          {errors.productName && touched.productName && <div>{errors.productName}</div>}
-          <br />
-          <label htmlFor="productImage">Product Image</label>
-          <Field className="newProductInput" id="productImage" name="productImage" placeholder="Product Image" />
-          {errors.productImage && touched.productImage && <div>{errors.productImage}</div>}
-          <br />
-          <label htmlFor="productPrice">Product Price</label>
-          <Field className="newProductInput" id="productPrice" name="productPrice" placeholder="Product Price" />
-          {errors.productPrice && touched.productPrice && <div>{errors.productPrice}</div>}
-          <br />
-          <label htmlFor="productType">Product Type</label>
-          <Field as='select' id='productType' name='productType' >
-            <option value="shirt" label='Shirt' />
-            <option value="pants" label='Pants' />
-            <option value="hoodie" label='Hoodie' />
-          </Field>
-          <br />
-          <label htmlFor="productAbout">Product About</label>
-          <br />
-          <Field as="textarea" className="newProductTextArea" id="productAbout" name="productAbout" placeholder="Product About" />
-          {errors.productAbout && touched.productAbout && <div>{errors.productAbout}</div>}
-          <br />
-          <Button type="submit">Submit</Button>
-        </Form>
-          )}
+         <Form>
+           <Field 
+            component={TextField}
+            name="productName"
+            type="productName"
+            label="Name"
+            margin="dense"
+           />
+           <br />
+           <Field 
+            component={TextField}
+            multiline
+            name="productImage"
+            type="productImage"
+            label="Image URL"
+            margin="dense"
+
+           />
+           <br />
+           <Field 
+            component={TextField}
+            name="productPrice"
+            type="productPrice"
+            label="Price"
+            margin="dense"
+
+           />
+           <br />
+           <br />
+           <Field 
+           component={Select} 
+           name='productType' 
+           label="Type"
+           >
+            <MenuItem value="shirt">Shirt</MenuItem>
+            <MenuItem value="pants">Pants</MenuItem>
+            <MenuItem value="hoodie">Hoodie</MenuItem>
+           </Field>
+           <br />
+           <Field 
+            component={TextField}
+            multiline
+            name="productAbout"
+            type="productAbout"
+            label="About"
+            margin="dense"
+           />
+           <br />
+           <Button type="submit">Submit</Button>
+         </Form>
       </Formik>
     </div>
   );

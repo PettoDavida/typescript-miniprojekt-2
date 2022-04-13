@@ -1,9 +1,8 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material"
+import { Button, ButtonGroup, Card, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import { productsContext } from "../context"
 import "../../CSS/product.css"
-import "../../CSS/adminProduct.css"
-import {Clothing} from "../products"
+import {Clothing} from "../../products"
 import { EditProduct } from "./editProductForm"
 
 function AdminProductCard(prod: Clothing){
@@ -21,11 +20,11 @@ function AdminProductCard(prod: Clothing){
     const handleClose = () => {setOpen(false)}
 
     return(
-        <div  className="productDiv">
+        <Card sx={{display: 'inline-block', padding:'1rem' ,margin: '1rem'}} raised={true}>
             <img className="productImg" src={prod.image} alt="" /> 
-            <h3 className="productName">{prod.name}</h3>
-            <div className="adminPageButtons">
-            <div className="editProduct">
+            <Typography variant="h5">{prod.name}</Typography>
+            <ButtonGroup>
+                
                     <Button variant="outlined" onClick={handleClickOpen}>
                         Edit
                     </Button>
@@ -38,7 +37,7 @@ function AdminProductCard(prod: Clothing){
                           <Button onClick={handleClose}>Close</Button>
                         </DialogActions>
                     </Dialog>
-                </div>
+                
             <Button
               variant="contained"
               color='error'
@@ -46,8 +45,8 @@ function AdminProductCard(prod: Clothing){
             >
               Remove
             </Button>
-            </div>
-        </div>
+            </ButtonGroup>
+        </Card>
     )
 
 

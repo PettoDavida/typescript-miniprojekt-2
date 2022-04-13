@@ -1,14 +1,11 @@
+import { Typography } from "@mui/material"
 import "../CSS/mainPage.css"
 
 function NotFoundPage(){
 
     
     return (
-        <div>
-            <h1>
-                Error: Page not found
-            </h1>
-        </div>
+        <Typography variant="h1">Error: Page not found</Typography>
     )
     
 }

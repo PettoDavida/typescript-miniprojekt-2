@@ -1,3 +1,4 @@
+import { Card, Typography } from "@mui/material";
 import { useContext, useEffect } from "react";
 import { orderContext, cartContext } from "./context";
 
@@ -13,9 +14,11 @@ useEffect(() => {
   setCart([])
 },[setOrder, setCart])
   return (
-    <div>  
-    <h2>Tack för din beställning!</h2>
-    <p>Ditt ordernummer: {id}</p>
+    <div className="ContactInfoDiv">  
+      <Card sx={{display: 'inline-block', padding: '2rem'}} raised={true}>
+        <Typography variant="h2">Tack för din beställning!</Typography>
+        <Typography>Ditt ordernummer: {id}</Typography>
+      </Card>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { createContext, FC, useState } from "react"
-import { Clothing } from "./products"
+import { Clothing } from "../products"
+import { ContactInfo } from "./form"
 
 export interface cartItem{
     clothing: Clothing
@@ -20,6 +21,14 @@ type productType = {
 
 export const productsContext = createContext<productType>({} as productType)
 
+type contactInfoType = {
+    contactInfo: ContactInfo
+    setContactInfo: React.Dispatch<React.SetStateAction<ContactInfo>>
+}
+
+export const contactInfoContext = createContext<contactInfoType>({} as contactInfoType)
+
+
 type fraktType = {
     frakt: number
     setFrakt: React.Dispatch<React.SetStateAction<number>>
@@ -39,18 +48,21 @@ const Provider: FC = ({children}) => {
     const [products, setProducts] = useState([] as Clothing[])
     const [frakt, setFrakt] = useState(0)
     const [order, setOrder] = useState(false)
+    const [contactInfo, setContactInfo] = useState({} as ContactInfo)
 
 
     return(
-        <orderContext.Provider value={{order, setOrder}}>
-            <fraktContext.Provider value={{frakt, setFrakt}}>
-                <productsContext.Provider value={{products, setProducts}}>
-                    <cartContext.Provider value={{cart, setCart}}>
-                        {children}
-                    </cartContext.Provider>
-                </productsContext.Provider>
-            </fraktContext.Provider>
-        </orderContext.Provider>
+        <contactInfoContext.Provider value={{contactInfo, setContactInfo}}>
+            <orderContext.Provider value={{order, setOrder}}>
+                <fraktContext.Provider value={{frakt, setFrakt}}>
+                    <productsContext.Provider value={{products, setProducts}}>
+                        <cartContext.Provider value={{cart, setCart}}>
+                            {children}
+                        </cartContext.Provider>
+                    </productsContext.Provider>
+                </fraktContext.Provider>
+            </orderContext.Provider>
+        </contactInfoContext.Provider>
     )
 }
 

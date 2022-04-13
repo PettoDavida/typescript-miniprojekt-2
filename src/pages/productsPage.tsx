@@ -2,8 +2,7 @@ import { useContext } from "react"
 import { productsContext } from "../components/context"
 import { GetLocalProducts, SetLocalProducts } from "../components/localStorage"
 import ProductCard from "../components/productCard"
-import { Clothing } from "../components/products"
-import "../CSS/productsPage.css"
+import { Clothing } from "../products"
 
 function ProductsPage(){
     

@@ -4,122 +4,105 @@ import postnordLogo from '../Images/postnord-logo.jpeg'
 import dhlLogo from '../Images/dhl-logo.png'
 import instaboxLogo from '../Images/instabox-logo.png'
 import { useNavigate } from 'react-router'
-import { fraktContext } from './context'
-import { Button } from '@mui/material'
+import { contactInfoContext, fraktContext } from './context'
+import { Button, Card, Radio, Typography } from '@mui/material'
+
+
+enum Sättfrakt{
+  empty = 0,
+  Postnord,
+  Postnordhem,
+  DHL,
+  Instabox
+}
 
 function Fraktsätt() {
 
   const navigate = useNavigate()
-  const {frakt, setFrakt} = useContext(fraktContext)
+  const {setFrakt} = useContext(fraktContext)
+  const {contactInfo} = useContext(contactInfoContext)
 
-    const[value, setValue] = useState(0);
-    let postnordExtended = "inactive"
-    let postnordHemExtended = "inactive"
-    let DHLExtended = "inactive"
-    let instaboxExtended = "inactive"
+  console.log(contactInfo);
+  
 
-    if(value === 1){
-        postnordExtended = "postnordExtended"
+  const [selectedValue, setSelectedValue] = useState(Sättfrakt.empty);
 
-      } else if (value === 2){
-        postnordHemExtended = "postnordHemExtended"
-      } else if (value === 3){
-        DHLExtended = "DHLExtended"
-      } else if (value === 4){
-        instaboxExtended = "instaboxExtended"
-      }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(parseInt(event.target.value) as Sättfrakt)
+  }
 
-      console.log(frakt)
+  const LeveransSätt = (props: any) => {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center'}}>
+        <Radio 
+          checked={selectedValue === props.sätt} 
+          onChange={handleChange}
+          value={props.sätt}
+        />
+        <img className='fraktlogo' src={props.icon} alt=""/>
+        <Typography>{Sättfrakt[props.sätt]}</Typography>
+      </div>
+    )
+  }
+
+  const LeveransInfo = (props: any) => {
+
+    setFrakt(props.fraktPris)
+
+    return(
+        <div style={{display: selectedValue === props.sätt ? "block" : "none"}}>
+          <div style={{display: "grid", gridTemplateColumns: 'repeat(2, 1fr)', gridTemplateRows: 'repeat(2, 1fr)', gridColumnGap: '2rem'}}>
+            <div style={{ width: '100%' }}>
+              <Typography>{props.fraktPris}kr frakt</Typography>
+            </div>
+
+            <div style={{ width: '100%' }}>
+              <Typography>Förväntad leveransdag</Typography> 
+              <Typography>{new Intl.DateTimeFormat('sv-SE', { dateStyle: 'full' }).format(date)}</Typography>
+            </div>
+
+            <div style={{ width: '100%', gridColumnStart: '2', gridRow: '1 / 3'}}>
+              <Typography>Levereras till</Typography>
+              <Typography>{contactInfo.streetAddress}</Typography>
+              <Typography>{contactInfo.zip} {contactInfo.city}</Typography>
+            </div>
+          </div>
+        </div>
+    )
+  }
+
+  let date = new Date();
+  date.setDate(date.getDate() + 5);
+
+  let dayOfWeek = date.getDay();
+
+  if (dayOfWeek === 6) {
+    date.setDate(date.getDate() + 2);
+  }
+
+  if (dayOfWeek === 0) {
+    date.setDate(date.getDate() + 1);
+  }
+  
   return (
-    <div className="mainDivFrakt">
-        <div className="formDivFrakt">
-            <span className='fraktSpan'>Välj fraktsätt</span>            
+    <div className="ContactInfoDiv">
+      <Card sx={{display: 'inline-block', padding: '2rem'}} raised={true}>
+            <Typography>Välj fraktsätt</Typography>
+              <LeveransSätt sätt={Sättfrakt.Postnord} icon={postnordLogo}/>
+              <LeveransInfo sätt={Sättfrakt.Postnord} fraktPris={79}/>
+    
+              <LeveransSätt sätt={Sättfrakt.Postnordhem} icon={postnordLogo}/>
+              <LeveransInfo sätt={Sättfrakt.Postnordhem} fraktPris={155}/>
 
-            <div className="postnordDiv">
-            <input name='Radio' id="postnord" type="radio" onClick={() => {setValue(1); setFrakt(0)}}/>
-            <label id="postnord" htmlFor="postnord">Postnord Ombud</label>
-            <img className="fraktImg" src={postnordLogo} alt="" />
-            <div className={postnordExtended}>
-            <div className='leveransDag'>
-            <p>Fri frakt!</p>
-            <br />
-            <p>Förväntad leveransdag</p>
-            <strong>Lördagen den 26:e mars</strong>
-            </div>
-            <div className='leveransPlats'>
-            <p>Levereras till</p>
-            <strong>Okq8 Bärnstensgatan</strong>
-            <p>Bärnstensgatan 3</p>
-            <p>426 52 Västra frölunda</p>
-            </div>
-            </div>
-            </div>
-            
-            <div className="postnordHemDiv">
-            <input name='Radio' id="postnordHem" type="radio" onClick={() => {setValue(2); setFrakt(29)}} />
-            <label id="postnordHem" htmlFor="postnordHem">Postnord hemleverans</label>
-            <img className="fraktImg" src={postnordLogo} alt="" />
-            <div className={postnordHemExtended}>
-            <div className='leveransDag'>
-            <p>29 kr</p>
-            <br />
-            <p>Förväntad leveransdag</p>
-            <strong>Lördagen den 26:e mars (kl. 10-17) </strong>
-            </div>
-            <div className='leveransPlats'>
-            <p>Levereras till</p>
-            <strong>Din adress</strong>
-            </div>
+              <LeveransSätt sätt={Sättfrakt.DHL} icon={dhlLogo}/>
+              <LeveransInfo sätt={Sättfrakt.DHL} fraktPris={20}/>
 
-            </div>
-            </div>
+              <LeveransSätt sätt={Sättfrakt.Instabox} icon={instaboxLogo}/>
+              <LeveransInfo sätt={Sättfrakt.Instabox} fraktPris={99}/>
 
-            <div className="DHLDiv">
-            <input name='Radio' id="DHL" type="radio"  onClick={() => {setValue(3); setFrakt(0)}} />
-            <label id="DHL" htmlFor="DHL">DHL</label>
-            <img className="fraktImg" src={dhlLogo} alt="" />
-            <div className={DHLExtended}>
-            <div className='leveransDag'>
-            <p>Fri frakt!</p>
-            <br />
-            <p>Förväntad leveransdag</p>
-            <strong>Onsdagen den 23:e mars</strong>
-            </div>
-            <div className='leveransPlats'>
-            <p>Levereras till</p>
-            <strong>Ica nära Fiskebäck</strong>
-            <p>Mungårdsgatan 21</p>
-            <p>426 53 Västra frölunda</p>
-            </div>
-
-            </div>
-            </div>
-
-            <div className="instaboxDiv">
-            <input name='Radio' id="instabox" type="radio" onClick={() => {setValue(4); setFrakt(0)}} />
-            <label id="instabox" htmlFor="instabox">Instabox</label>
-            <img className="fraktImg" src={instaboxLogo} alt="" />
-            <div className={instaboxExtended}>
-            <div className='leveransDag'>
-            <p>Fri frakt!</p>
-            <br />
-            <p>Förväntad leveransdag</p>
-            <strong>Måndagen den 21:e mars</strong>
-            </div>
-            <div className='leveransPlats'>
-            <p>Levereras till</p>
-            <strong>Okq8 Bärnstensgatan</strong>
-            <p>Bärnstensgatan 3</p>
-            <p>42652 Västra frölunda</p>
-            </div>
-
-            </div>
-            </div>
-
-            <Button variant='contained' onClick={() => {navigate('betalning')}}>Välj Betalsätt</Button>
-            </div>
-
-            </div>
+            <Button disabled={selectedValue === Sättfrakt.empty ? true : false}variant='contained' onClick={() => {navigate('betalning')}}>Välj Betalsätt</Button>
+      </Card>
+    </div>
   )
   
 }
