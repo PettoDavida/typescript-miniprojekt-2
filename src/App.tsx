@@ -16,8 +16,7 @@ import OrderConfirmation from "./components/orderconfirmation";
 function App() {
   return (
 
-   /* <PaymentMethod />*/
-             <BrowserRouter>
+        <BrowserRouter>
           <Provider>
             <Header/>
               <Routes>

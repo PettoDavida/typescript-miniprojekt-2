@@ -49,7 +49,13 @@ function ContactForm() {
   }
 
   const formatContactInfo = (values: any) => {
-    const Info: ContactInfo = {'firstName': values.firstName, 'lastName': values.lastName, 'email': values.email, 'phoneNumber': values.phoneNumber, 'streetAddress': values.streetAddress, 'zip': values.zip, 'city': values.city}
+    const Info: ContactInfo = {'firstName': values.firstName, 
+                               'lastName': values.lastName,
+                               'email': values.email,
+                               'phoneNumber': values.phoneNumber,
+                               'streetAddress': values.streetAddress,
+                               'zip': values.zip,
+                               'city': values.city}
     setContactInfo(Info)
     console.log(Info);
   }
