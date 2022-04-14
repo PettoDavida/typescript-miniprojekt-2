@@ -1,10 +1,10 @@
 import { Card, Typography } from "@mui/material";
 import { useContext, useEffect } from "react";
-import { orderContext, cartContext } from "./context";
+import { orderContext, cartContext } from "../components/context";
 
 let id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
-function OrderConfirmation() {
+function OrderConfirmationPage() {
     
   const {setOrder} = useContext(orderContext)
   const {setCart} = useContext(cartContext)
@@ -23,4 +23,4 @@ useEffect(() => {
   )
 }
 
-export default OrderConfirmation;
+export default OrderConfirmationPage;

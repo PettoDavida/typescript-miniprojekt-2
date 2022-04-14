@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { useNavigate } from "react-router";
 import { Button, Card, Typography } from "@mui/material";
 import { TextField } from "formik-mui";
-import { contactInfoContext } from "./context";
+import { contactInfoContext } from "../components/context";
 import { useContext } from "react";
 
 export interface ContactInfo {
@@ -18,7 +18,7 @@ export interface ContactInfo {
 }
 
 
-function ContactForm() {
+function ContactFormPage() {
 
   const navigate = useNavigate()
 
@@ -142,4 +142,4 @@ function ContactForm() {
 }
 
 
-export default ContactForm
+export default ContactFormPage

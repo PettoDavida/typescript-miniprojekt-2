@@ -7,12 +7,12 @@ import SwishLogo from '../Images/Swish.png'
 import MasterCardLogo from '../Images/Mastercard.png'
 import PayPalLogo from '../Images/Paypal.png'
 import SwishQRLogo from '../Images/SwishQR.png'
-import { cartContext, contactInfoContext, fraktContext, orderContext } from "./context";
+import { cartContext, contactInfoContext, fraktContext, orderContext } from "../components/context";
 import { useNavigate } from "react-router-dom"
 import { Card,  Radio,  Typography } from "@mui/material";
 import { TextField } from "formik-mui";
 
-enum Betalsätt{
+enum paymentMethod{
   empty = 0,
   Kort,
   Swish,
@@ -26,7 +26,7 @@ interface CardInfo{
   cvc: string,
 }
 
-function PaymentMethod() {
+function PaymentPage() {
 
   const {frakt} = useContext(fraktContext)
   const {order, setOrder} = useContext(orderContext)
@@ -61,22 +61,22 @@ function PaymentMethod() {
         // console.log(cart);
     }, [cart])
 
-    const [selectedValue, setSelectedValue] = useState(Betalsätt.empty);
+    const [selectedValue, setSelectedValue] = useState(paymentMethod.empty);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSelectedValue(parseInt(event.target.value) as Betalsätt)
+      setSelectedValue(parseInt(event.target.value) as paymentMethod)
     }
   
-    const BetalSätt = (props: any) => {
+    const RenderPaymentMethod = (props: any) => {
       return (
         <div style={{ display: 'flex', alignItems: 'center'}}>
           <Radio 
-            checked={selectedValue === props.sätt} 
+            checked={selectedValue === props.method} 
             onChange={handleChange}
-            value={props.sätt}
+            value={props.method}
           />
           <img className='betallogo' src={props.icon} alt=""/>
-          <Typography>{Betalsätt[props.sätt]}</Typography>
+          <Typography>{paymentMethod[props.method]}</Typography>
         </div>
       )
     }
@@ -107,7 +107,7 @@ function PaymentMethod() {
       }
   
       return(
-          <div style={{display: selectedValue === props.sätt ? "block" : "none"}}>
+          <div style={{display: selectedValue === props.method ? "block" : "none"}}>
             <Formik
                 initialValues={initialValues}
                 onSubmit={(values, actions) => {
@@ -169,7 +169,7 @@ function PaymentMethod() {
   
   
       return(
-          <div className="SwishDiv" style={{display: selectedValue === props.sätt ? "flex" : "none"}}>
+          <div className="SwishDiv" style={{display: selectedValue === props.method ? "flex" : "none"}}>
             <img src={SwishQRLogo} alt="" className="swishQR" />
             <Typography>Scanna QR koden eller <br/> välj telefonnummer i rutan under</Typography>
             <br />
@@ -209,7 +209,7 @@ function PaymentMethod() {
 
   
       return(
-          <div style={{display: selectedValue === props.sätt ? "block" : "none"}}>
+          <div style={{display: selectedValue === props.method ? "block" : "none"}}>
             <Formik
                 initialValues={initialValue}
                 onSubmit={(values, actions) => {
@@ -238,19 +238,19 @@ function PaymentMethod() {
   return (
     <div className="ContactInfoDiv">
       <Card sx={{display: 'inline-block', padding: '2rem'}} raised={true}>
-            <Typography variant="h5">Välj Betalsätt</Typography>
+            <Typography variant="h5">Välj paymentMethod</Typography>
             <Typography>Varor: {totalPriceOfItemsInCart}Kr</Typography>
             <Typography>Moms: {totalPriceOfItemsInCart/4}Kr</Typography>
             <Typography>Frakt: {frakt}Kr</Typography>
             <Typography>Total Pris: {totalPriceOfItemsInCart + frakt}Kr</Typography>
-            <BetalSätt sätt={Betalsätt.Kort} icon={MasterCardLogo} />
-            <KortInfo sätt={Betalsätt.Kort}/>
+            <RenderPaymentMethod method={paymentMethod.Kort} icon={MasterCardLogo} />
+            <KortInfo method={paymentMethod.Kort}/>
 
-            <BetalSätt sätt={Betalsätt.Swish} icon={SwishLogo} />
-            <SwishInfo sätt={Betalsätt.Swish}/>
+            <RenderPaymentMethod method={paymentMethod.Swish} icon={SwishLogo} />
+            <SwishInfo method={paymentMethod.Swish}/>
 
-            <BetalSätt sätt={Betalsätt.PayPal} icon={PayPalLogo} />
-            <PayPalInfo sätt={Betalsätt.PayPal}/>
+            <RenderPaymentMethod method={paymentMethod.PayPal} icon={PayPalLogo} />
+            <PayPalInfo method={paymentMethod.PayPal}/>
       </Card>
 
     </div>
@@ -258,5 +258,5 @@ function PaymentMethod() {
 }
 
 
-export default PaymentMethod;
+export default PaymentPage;
 
