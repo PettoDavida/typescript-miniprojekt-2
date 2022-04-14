@@ -40,4 +40,4 @@ npm start
 
 * [Formik MUI](https://stackworx.github.io/formik-mui/)
 
-* [Netlify](https://beamish-meerkat-cea67a.netlify.app)
+* [Netlify](https://typescript-miniprojekt-2.netlify.app)
