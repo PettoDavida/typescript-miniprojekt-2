@@ -4,6 +4,8 @@
 
 Detta är ett projekt där vi som grupp skapat en hemsida med react och typescript där man kan lägga till och ta bort produkter i varukorgen samt hemsidans produkter. Den använder sig utav localstorage för att spara produkter. De flesta formulär är gjorda helt i formik. Vi har även använt material ui för knappar, modal, icons, mm. 
 
+Autofill fungerar som bäst på netlify länken då det är en secureconnection. 
+
 ## Bygga projektet
 
 För att installera alla moduler kör
@@ -36,4 +38,6 @@ npm start
 
 * [TypeScript](https://www.typescriptlang.org/docs/)
 
-* [Netlify](https://peaceful-chebakia-2b2e42.netlify.app/)
+* [Formik MUI](https://stackworx.github.io/formik-mui/)
+
+* [Netlify](https://typescript-miniprojekt-2.netlify.app)

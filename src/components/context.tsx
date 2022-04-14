@@ -1,6 +1,6 @@
 import { createContext, FC, useState } from "react"
 import { Clothing } from "../products"
-import { ContactInfo } from "./form"
+import { ContactInfo } from "../pages/contactFormPage"
 
 export interface cartItem{
     clothing: Clothing

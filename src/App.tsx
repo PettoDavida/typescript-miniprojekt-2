@@ -8,16 +8,15 @@ import MainPage from "./pages/mainPage";
 import NotFoundPage from "./pages/notFoundPage";
 import ProductPage from "./pages/productPage";
 import ProductsPage from "./pages/productsPage";
-import Form from "./components/form";
-import Fraktsätt from "./components/fraktsätt";
-import PaymentMethod from "./components/payment";
-import OrderConfirmation from "./components/orderconfirmation";
+import ContactFormPage from "./pages/contactFormPage";
+import DeliveryPage from "./pages/deliveryPage";
+import PaymentPage from "./pages/paymentPage";
+import OrderConfirmationPage from "./pages/orderconfirmation";
 
 function App() {
   return (
 
-   /* <PaymentMethod />*/
-             <BrowserRouter>
+        <BrowserRouter>
           <Provider>
             <Header/>
               <Routes>
@@ -25,10 +24,10 @@ function App() {
                 <Route path='productspage' element={<ProductsPage/>}/>
                 <Route path='productspage/:clothing' element={<ProductPage />} />
                 <Route path='admin' element={<AdminPage/>} />
-                <Route path='dina-uppgifter' element={<Form/>}/>
-                <Route path='dina-uppgifter/frakt' element={<Fraktsätt/>}/>
-                <Route path='dina-uppgifter/frakt/betalning' element={<PaymentMethod/>}/>
-                <Route path='dina-uppgifter/frakt/betalning/orderconfirmation' element={<OrderConfirmation/>}/>
+                <Route path='dina-uppgifter' element={<ContactFormPage/>}/>
+                <Route path='dina-uppgifter/frakt' element={<DeliveryPage/>}/>
+                <Route path='dina-uppgifter/frakt/betalning' element={<PaymentPage/>}/>
+                <Route path='dina-uppgifter/frakt/betalning/orderconfirmation' element={<OrderConfirmationPage/>}/>
 
                   
                 <Route path='*' element={<NotFoundPage />} />

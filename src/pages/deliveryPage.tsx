@@ -1,14 +1,14 @@
 import {useContext, useState} from 'react'
-import "../CSS/fraktsätt.css"
+import "../CSS/delivery.css"
 import postnordLogo from '../Images/postnord-logo.jpeg'
 import dhlLogo from '../Images/dhl-logo.png'
 import instaboxLogo from '../Images/instabox-logo.png'
 import { useNavigate } from 'react-router'
-import { contactInfoContext, fraktContext } from './context'
+import { contactInfoContext, fraktContext } from '../components/context'
 import { Button, Card, Radio, Typography } from '@mui/material'
 
 
-enum Sättfrakt{
+enum DeliveryMethod{
   empty = 0,
   Postnord,
   Postnordhem,
@@ -16,7 +16,7 @@ enum Sättfrakt{
   Instabox
 }
 
-function Fraktsätt() {
+function DeliveryPage() {
 
   const navigate = useNavigate()
   const {setFrakt} = useContext(fraktContext)
@@ -25,35 +25,35 @@ function Fraktsätt() {
   console.log(contactInfo);
   
 
-  const [selectedValue, setSelectedValue] = useState(Sättfrakt.empty);
+  const [selectedValue, setSelectedValue] = useState(DeliveryMethod.empty);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(parseInt(event.target.value) as Sättfrakt)
+    setSelectedValue(parseInt(event.target.value) as DeliveryMethod)
   }
 
-  const LeveransSätt = (props: any) => {
+  const RenderDeliveryMethod = (props: any) => {
     return (
       <div style={{ display: 'flex', alignItems: 'center'}}>
         <Radio 
-          checked={selectedValue === props.sätt} 
+          checked={selectedValue === props.method} 
           onChange={handleChange}
-          value={props.sätt}
+          value={props.method}
         />
         <img className='fraktlogo' src={props.icon} alt=""/>
-        <Typography>{Sättfrakt[props.sätt]}</Typography>
+        <Typography>{DeliveryMethod[props.method]}</Typography>
       </div>
     )
   }
 
-  const LeveransInfo = (props: any) => {
+  const DeliveryInfo = (props: any) => {
 
-    setFrakt(props.fraktPris)
+    setFrakt(props.deliveryCost)
 
     return(
-        <div style={{display: selectedValue === props.sätt ? "block" : "none"}}>
+        <div style={{display: selectedValue === props.method ? "block" : "none"}}>
           <div style={{display: "grid", gridTemplateColumns: 'repeat(2, 1fr)', gridTemplateRows: 'repeat(2, 1fr)', gridColumnGap: '2rem'}}>
             <div style={{ width: '100%' }}>
-              <Typography>{props.fraktPris}kr frakt</Typography>
+              <Typography>{props.deliveryCost}kr frakt</Typography>
             </div>
 
             <div style={{ width: '100%' }}>
@@ -88,19 +88,19 @@ function Fraktsätt() {
     <div className="ContactInfoDiv">
       <Card sx={{display: 'inline-block', padding: '2rem'}} raised={true}>
             <Typography>Välj fraktsätt</Typography>
-              <LeveransSätt sätt={Sättfrakt.Postnord} icon={postnordLogo}/>
-              <LeveransInfo sätt={Sättfrakt.Postnord} fraktPris={79}/>
+              <RenderDeliveryMethod method={DeliveryMethod.Postnord} icon={postnordLogo}/>
+              <DeliveryInfo method={DeliveryMethod.Postnord} deliveryCost={79}/>
     
-              <LeveransSätt sätt={Sättfrakt.Postnordhem} icon={postnordLogo}/>
-              <LeveransInfo sätt={Sättfrakt.Postnordhem} fraktPris={155}/>
+              <RenderDeliveryMethod method={DeliveryMethod.Postnordhem} icon={postnordLogo}/>
+              <DeliveryInfo method={DeliveryMethod.Postnordhem} deliveryCost={155}/>
 
-              <LeveransSätt sätt={Sättfrakt.DHL} icon={dhlLogo}/>
-              <LeveransInfo sätt={Sättfrakt.DHL} fraktPris={20}/>
+              <RenderDeliveryMethod method={DeliveryMethod.DHL} icon={dhlLogo}/>
+              <DeliveryInfo method={DeliveryMethod.DHL} deliveryCost={20}/>
 
-              <LeveransSätt sätt={Sättfrakt.Instabox} icon={instaboxLogo}/>
-              <LeveransInfo sätt={Sättfrakt.Instabox} fraktPris={99}/>
+              <RenderDeliveryMethod method={DeliveryMethod.Instabox} icon={instaboxLogo}/>
+              <DeliveryInfo method={DeliveryMethod.Instabox} deliveryCost={99}/>
 
-            <Button disabled={selectedValue === Sättfrakt.empty ? true : false}variant='contained' onClick={() => {navigate('betalning')}}>Välj Betalsätt</Button>
+            <Button disabled={selectedValue === DeliveryMethod.empty ? true : false}variant='contained' onClick={() => {navigate('betalning')}}>Välj Betalsätt</Button>
       </Card>
     </div>
   )
@@ -108,4 +108,4 @@ function Fraktsätt() {
 }
 
 
-export default Fraktsätt
+export default DeliveryPage
